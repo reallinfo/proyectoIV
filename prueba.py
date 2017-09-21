@@ -1,0 +1,2 @@
+print "lo que sea"
+
