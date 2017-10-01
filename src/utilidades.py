@@ -9,7 +9,7 @@ def limpiar_pantalla():
 		basura = os.system('cls')
 	elif sistema == 'Linux' or sistema == 'Darwin':
 		basura = os.system('clear')
-
+ 
 # Recibe como parámetro un objeto datetime y devuelve los valores que representa como un código AAAAMMDD:HHMM
 def obtener_id(fecha):
 	if type(fecha) is not datetime.datetime:

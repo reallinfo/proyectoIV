@@ -13,7 +13,7 @@ class TestUtilidades(unittest.TestCase):
 		self.assertEqual(obtener_fecha(res), fecha, "El código obtenido no coincide con la fecha dada")
 
 	def test_obtener_fecha(self):
-		print("Testeando obtener_fecha()...")
+		print("Testeando obtener_fecha()... ")
 		fecha = datetime.datetime(2020, 12, 1, 1, 2)
 		id = obtener_id(fecha)
 		res = obtener_fecha(id)
