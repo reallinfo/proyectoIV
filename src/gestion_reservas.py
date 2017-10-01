@@ -1,6 +1,8 @@
 import fechas
 import utilidades
 import datetime
+import sqlite3
+import gestion_bd
 
 def pedir_fecha():
 	## Pedir fecha
@@ -9,7 +11,7 @@ def pedir_fecha():
 	while not ok:
 		try:
 			ano = int(input("\tInserta año (AAAA): "))
-			if ano < datetime.datetime.today().year:
+			if ano < datetime.datetime.today().year or ano > datetime.MAXYEAR:
 				raise RuntimeError
 			ok = 1
 		except:
@@ -47,6 +49,24 @@ def imprimir_opciones():
 	print("\t4. Consultar reserva")
 	print("\t****************************\n\n")
 
+def consultar_horario():
+	fecha = pedir_fecha
+	con = sqlite3.connect('datos.db')
+	c = conn.cursor()
+	id = utilidades.obtener_id(fecha)
+	res = c.execute("SELECT * FROM futbolin WHERE id = ?", id)
+
+	con.commit()
+	con.close()
+
+def hacer_reserva():
+	print("hi")
+
+def cancelar_reserva():
+	print("hi")
+
+def consultar_reserva():
+	print("hi")
 
 def main():
 
@@ -70,8 +90,10 @@ def main():
 			except:
 				print("\tEl valor introducido no es válido.")
 
-		if res:
-			fecha = pedir_fecha()
+		if res == 1:	consultar_horario()
+		elif res == 2:	hacer_reserva()
+		elif res == 3:	cancelar_reserva()
+		elif res == 4:	consultar_reserva()
 
 
 
