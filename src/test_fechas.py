@@ -22,13 +22,13 @@ class TestFechas(unittest.TestCase):
 
 	def test_fecha_pasada(self):
 		print("Testeando fecha_pasada()...")
-		self.assertEqual(fecha_pasada(ayer()), True, "Ayer no ha sido determinada como fecha pasada")
-		self.assertEqual(fecha_pasada(hoy()), True, "Hoy no ha sido determinado como fecha pasada")
-		self.assertEqual(fecha_pasada(manana()), False, "Mañana ha sido determinado como fecha pasada")
+		self.assertTrue(fecha_pasada(ayer()), "Ayer no ha sido determinada como fecha pasada")
+		self.assertTrue(fecha_pasada(hoy()), "Hoy no ha sido determinado como fecha pasada")
+		self.assertFalse(fecha_pasada(manana()), "Mañana ha sido determinado como fecha pasada")
 
 	def test_fecha_entre(self):
 		print("Testeando fecha_entre()...")
-		self.assertEqual(fecha_entre(hoy(), ayer(), manana()), True, "Se ha determinado que hoy no está entre ayer y manañana")
+		self.assertTrue(fecha_entre(hoy(), ayer(), manana()), "Se ha determinado que hoy no está entre ayer y manañana")
 
 
 if __name__ == '__main__':
