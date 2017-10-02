@@ -1,6 +1,6 @@
 import unittest
-from src.fechas import *
-from src.utilidades import *
+from fechas import *
+from utilidades import *
 
 class TestUtilidades(unittest.TestCase):
 	def test_obtener_id(self):

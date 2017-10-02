@@ -1,5 +1,5 @@
 import unittest
-from src.fechas import *
+from fechas import *
 from datetime import *
 
 
