@@ -77,4 +77,4 @@ def obtener_id(fecha):
 
 	f = obtener_cod_fecha(fecha)
 	h = obtener_cod_hora(fecha)
-	return f + ":" h
+	return f + ":" + h
