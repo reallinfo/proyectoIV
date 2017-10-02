@@ -9,35 +9,6 @@ def limpiar_pantalla():
 		basura = os.system('cls')
 	elif sistema == 'Linux' or sistema == 'Darwin':
 		basura = os.system('clear')
- 
-# Recibe como parámetro un objeto datetime y devuelve los valores que representa como un código AAAAMMDD:HHMM
-def obtener_id(fecha):
-	if type(fecha) is not datetime.datetime:
-		raise RuntimeError("obtener_id acepta sólo datetime como parámetros.")
-
-	if fecha.month < 10:
-		mes = "0" + str(fecha.month)
-	else:
-		mes = str(fecha.month)
-
-	if fecha.day < 10:
-		dia = "0" + str(fecha.day)
-	else:
-		dia = str(fecha.day)
-
-	if fecha.hour < 10:
-		hora = "0" + str(fecha.hour)
-	else:
-		hora = str(fecha.hour)
-
-	if fecha.minute < 10:
-		minutos = "0" + str(fecha.minute)
-	else:
-		minutos = str(fecha.minute)
-
-	res = str(fecha.year) + mes + dia + ":" + hora + minutos
-
-	return res
 
 # Recibe como argumento un string con formato ID AAAAMMDD:HHMM y devuelve una fecha con esos datos.
 def obtener_fecha(id):
@@ -56,3 +27,54 @@ def obtener_fecha(id):
 
 	except:
 		print("Error al pasar de id a fecha")
+
+
+def obtener_cod_fecha(fecha):
+	try:
+		if type(fecha) is not datetime.datetime:
+			raise RuntimeError
+
+		if fecha.month < 10:
+			mes = "0" + str(fecha.month)
+		else:
+			mes = str(fecha.month)
+
+		if fecha.day < 10:
+			dia = "0" + str(fecha.day)
+		else:
+			dia = str(fecha.day)
+
+		return str(fecha.year) + mes + dia
+
+	except:
+		print("obtener_cod_fecha() sólo admite datetime como parámetro")
+
+def obtener_cod_hora(fecha):
+	try:
+		if type(fecha) is not datetime.datetime:
+			raise RuntimeError
+
+		if fecha.hour < 10:
+			hora = "0" + str(fecha.hour)
+		else:
+			hora = str(fecha.hour)
+
+		if fecha.minute < 10:
+			minutos = "0" + str(fecha.minute)
+		else:
+			minutos = str(fecha.minute)
+
+		return hora + minutos
+
+	except:
+		print("obtener_cod_hora() sólo admite datetime como parámetro")
+
+
+# Recibe como parámetro un objeto datetime y devuelve los valores que representa como un código AAAAMMDD:HHMM
+def obtener_id(fecha):
+	if type(fecha) is not datetime.datetime:
+		raise RuntimeError("obtener_id acepta sólo datetime como parámetros.")
+
+	f = obtener_cod_fecha(fecha)
+	h = obtener_cod_hora(fecha)
+	return f + ":" h

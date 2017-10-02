@@ -49,15 +49,28 @@ def imprimir_opciones():
 	print("\t4. Consultar reserva")
 	print("\t****************************\n\n")
 
-def consultar_horario():
-	fecha = pedir_fecha
+def consultar_horario_usr():
+	fecha = pedir_fecha()
+	id = utilidades.obtener_cod_fecha(fecha)
+	print(consultar_horario(id))
+
+
+def consultar_horario(tabla, fecha):
 	con = sqlite3.connect('datos.db')
 	c = conn.cursor()
-	id = utilidades.obtener_id(fecha)
-	res = c.execute("SELECT * FROM futbolin WHERE id = ?", id)
+
+	query = "SELECT * FROM " + str(tabla) + " WHERE fecha = " + str(fecha)"
+	res = c.execute(query)
+
+	ret = res.fetchone()
+
+	if ret == None:
+		ret = "No hay reservas para este día"
+	else:
 
 	con.commit()
 	con.close()
+
 
 def hacer_reserva():
 	print("hi")
@@ -68,8 +81,9 @@ def cancelar_reserva():
 def consultar_reserva():
 	print("hi")
 
-def main():
 
+
+def main():
 	ok = 0
 	res = -1
 	nOpciones = 5

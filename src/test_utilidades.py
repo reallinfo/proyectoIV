@@ -21,7 +21,6 @@ class TestUtilidades(unittest.TestCase):
 		self.assertEqual(obtener_id(res), id, "El código obtenido no coincide con la fecha dada")
 
 
-
 if __name__ == '__main__':
 	print("INICIANDO TEST DE LA BIBILIOTECA DE UTILIDADES (utilidades.py)")
 	unittest.main()
