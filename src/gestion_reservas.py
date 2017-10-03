@@ -2,7 +2,6 @@ import fechas
 import utilidades
 import datetime
 import sqlite3
-import gestion_bd
 
 def pedir_fecha():
 	## Pedir fecha
@@ -52,21 +51,31 @@ def imprimir_opciones():
 def consultar_horario_usr():
 	fecha = pedir_fecha()
 	id = utilidades.obtener_cod_fecha(fecha)
-	print(consultar_horario(id))
+	print(consultar_horario(fecha))
 
 
 def consultar_horario(tabla, fecha):
 	con = sqlite3.connect('datos.db')
-	c = conn.cursor()
+	c = con.cursor()
+	cod_fecha = utilidades.obtener_cod_fecha(fecha)
+	ok = 0
 
-	query = "SELECT * FROM " + str(tabla) + " WHERE fecha = " + str(fecha)"
+	query = "SELECT * FROM " + str(tabla) + " WHERE fecha = " + cod_fecha
 	res = c.execute(query)
+	ret = "HORARIO PARA " + utilidades.obtener_dia(cod_fecha) + "/" + utilidades.obtener_mes(cod_fecha) + "/" + utilidades.obtener_ano(cod_fecha) + "\n"
 
-	ret = res.fetchone()
+	aux = res.fetchone()
+	while aux != None:
+		ok = 1
+		ret += str(aux[3]) + "\n"
+		aux = res.fetchone()
 
-	if ret == None:
+	if not ok:
 		ret = "No hay reservas para este día"
-	else:
+
+	con.close()
+	return ret
+
 
 	con.commit()
 	con.close()

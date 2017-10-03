@@ -78,3 +78,12 @@ def obtener_id(fecha):
 	f = obtener_cod_fecha(fecha)
 	h = obtener_cod_hora(fecha)
 	return f + ":" + h
+
+def obtener_ano(cod_fecha):
+	return cod_fecha[0] + cod_fecha[1] + cod_fecha[2] + cod_fecha[3]
+
+def obtener_mes(cod_fecha):
+	return  cod_fecha[4] + cod_fecha[5]
+
+def obtener_dia(cod_fecha):
+	return cod_fecha[6] + cod_fecha[7]
