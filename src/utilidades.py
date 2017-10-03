@@ -16,7 +16,7 @@ def pausa_ejecucion():
 	if sistema == 'Windows':
 		basura = os.system('pause')
 	elif sistema == 'Linux' or sistema == 'Darwin':
-		basura = os.system("read -p 'Press enter to continue'")
+		basura = os.system("read -rsn1 -p'Press any key to continue...';echo")
 
 
 # Recibe como argumento un string con formato ID AAAAMMDD:HHMM y devuelve una fecha con esos datos.
