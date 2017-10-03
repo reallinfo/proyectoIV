@@ -15,9 +15,9 @@ def pausa_ejecucion():
 	sistema = platform.system()
 	if sistema == 'Windows':
 		basura = os.system('pause')
-	elif sistema == 'Linux' or sistema == 'Darwin':
-		basura = os.system("read -rsn1 -p'Press any key to continue...';echo")
 
+def plataforma():
+	return platform.system()
 
 # Recibe como argumento un string con formato ID AAAAMMDD:HHMM y devuelve una fecha con esos datos.
 def obtener_fecha(id):

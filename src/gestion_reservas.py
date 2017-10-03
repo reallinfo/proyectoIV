@@ -96,6 +96,7 @@ def main():
 	ok = 0
 	res = -1
 	nOpciones = 5
+	plat = utilidades.plataforma()
 
 	while res:
 		ok = 0
@@ -103,7 +104,9 @@ def main():
 		dia = ano = mes = 0
 
 		while not ok:
-			utilidades.limpiar_pantalla()
+			if plat is 'Windows':
+				utilidades.limpiar_pantalla()
+
 			imprimir_opciones()
 			try:
 				res = int(input("\tQue quieres hacer? "))
@@ -113,6 +116,8 @@ def main():
 			except:
 				print("\tEl valor introducido no es válido.")
 
+		if plat is not 'Windows':
+			utilidades.limpiar_pantalla()
 		if res == 1:	consultar_horario_usr()
 		elif res == 2:	hacer_reserva_usr()
 		elif res == 3:	cancelar_reserva_usr()
