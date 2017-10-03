@@ -51,7 +51,9 @@ def imprimir_opciones():
 def consultar_horario_usr():
 	fecha = pedir_fecha()
 	id = utilidades.obtener_cod_fecha(fecha)
-	print(consultar_horario(fecha))
+	print(consultar_horario('futbolin',fecha))
+	print("\n\n\n")
+	utilidades.pausa_ejecucion()
 
 
 def consultar_horario(tabla, fecha):
@@ -60,34 +62,32 @@ def consultar_horario(tabla, fecha):
 	cod_fecha = utilidades.obtener_cod_fecha(fecha)
 	ok = 0
 
-	query = "SELECT * FROM " + str(tabla) + " WHERE fecha = " + cod_fecha
+	query = "SELECT * FROM " + str(tabla) + " WHERE fecha = " + cod_fecha + " ORDER BY hora"
 	res = c.execute(query)
-	ret = "HORARIO PARA " + utilidades.obtener_dia(cod_fecha) + "/" + utilidades.obtener_mes(cod_fecha) + "/" + utilidades.obtener_ano(cod_fecha) + "\n"
+	ret = "\tRESERVAS PARA EL " + utilidades.obtener_dia(cod_fecha) + "/" + utilidades.obtener_mes(cod_fecha) + "/" + utilidades.obtener_ano(cod_fecha) + "\n\n"
 
 	aux = res.fetchone()
 	while aux != None:
 		ok = 1
-		ret += str(aux[3]) + "\n"
+		ret += "\t" + aux[3][0] + aux[3][1] + ":" + aux[3][2] + aux[3][3] + "\n"
 		aux = res.fetchone()
 
 	if not ok:
 		ret = "No hay reservas para este día"
+	else:
+		ret += "\n\tEl resto de horas están libres."
 
 	con.close()
 	return ret
 
 
-	con.commit()
-	con.close()
-
-
-def hacer_reserva():
+def hacer_reserva_usr():
 	print("hi")
 
-def cancelar_reserva():
+def cancelar_reserva_usr():
 	print("hi")
 
-def consultar_reserva():
+def consultar_reserva_usr():
 	print("hi")
 
 
@@ -113,10 +113,10 @@ def main():
 			except:
 				print("\tEl valor introducido no es válido.")
 
-		if res == 1:	consultar_horario()
-		elif res == 2:	hacer_reserva()
-		elif res == 3:	cancelar_reserva()
-		elif res == 4:	consultar_reserva()
+		if res == 1:	consultar_horario_usr()
+		elif res == 2:	hacer_reserva_usr()
+		elif res == 3:	cancelar_reserva_usr()
+		elif res == 4:	consultar_reserva_usr()
 
 
 

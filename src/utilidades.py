@@ -10,6 +10,15 @@ def limpiar_pantalla():
 	elif sistema == 'Linux' or sistema == 'Darwin':
 		basura = os.system('clear')
 
+# Pausa la ejecución hasta que se pulse alguna tecla
+def pausa_ejecucion():
+	sistema = platform.system()
+	if sistema == 'Windows':
+		basura = os.system('pause')
+	elif sistema == 'Linux' or sistema == 'Darwin':
+		basura = os.system("read -p 'Press enter to continue'")
+
+
 # Recibe como argumento un string con formato ID AAAAMMDD:HHMM y devuelve una fecha con esos datos.
 def obtener_fecha(id):
 	try:
