@@ -8,7 +8,7 @@ Aplicación desarrollada en Python 3 para la gestión de reservas de diferentes 
 
 Queda por determinar la forma más conveniente de almacenar la información de las reservas así como la representación más conveniente para las fechas y horas de las reservas.
 
-Para llevar a cabo los tests sobre el código se va a utilizar la biblioteca `unittest` de Python. Estos tests se ejecutarán a través de `Travis CI`.
+Para llevar a cabo los tests sobre el código se va a utilizar la biblioteca `unittest` de Python. Estos tests se ejecutarán a través de `Travis CI`. Los tests se encuentran el la carpeta *./tests*.
 
 La estructura de la base de datos se crea y gestiona con la biblioteca de Python `sqlite3`, se encuentra en la carpeta *./src* y se estructura de la siguiente forma:
 - Una tabla *futbolin* en la que se almacenan un identificador (id) de la reserva, la fecha en formato AAAAMMDD, la hora en forma HHMM y el correo de quién la haya realizado (email). El id consiste en
