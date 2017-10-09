@@ -1,3 +1,7 @@
+"""
+Gestión de fechas con funciones que serán útiles a la hora de trabajar con la base de datos del proyecto. Trabaja tanto con fechas como con horas.
+"""
+
 
 from datetime import *
 

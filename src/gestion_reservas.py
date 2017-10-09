@@ -1,3 +1,7 @@
+"""
+Grupo de funciones para dar órdenes directas a la base de datos. Cada una de las funciones recibe una serie de parámetros que usará para interactuar con la base de datos y devuelve algo dependiendo del resultado obtenido de ésta. La idea es separar la interfaz de usuario de la gestión de la base de datos de forma que en el programa principal no haya ninguna referencia a ésta, sólo llamadas a esta biblioteca que hará tareas concretas.
+"""
+
 
 def consultar_horario(tabla, fecha):
 	con = sqlite3.connect('datos.db')

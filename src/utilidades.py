@@ -1,3 +1,8 @@
+"""
+Grupo de utilidades varias para gestionar los diferentes códigos manejados por la base de datos así como la interacción con el sistema operativo que use el programa.
+"""
+
+
 import platform
 import os
 import datetime
