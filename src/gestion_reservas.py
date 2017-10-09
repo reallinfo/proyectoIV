@@ -1,7 +1,3 @@
-import fechas
-import utilidades
-import datetime
-import sqlite3
 
 def consultar_horario(tabla, fecha):
 	con = sqlite3.connect('datos.db')
