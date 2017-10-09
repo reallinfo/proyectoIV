@@ -4,6 +4,14 @@ Programa con interfaz de usuario para probar las funcionalidades de gestion_rese
 Está pensado sólo para hacer pruebas, por lo que a partir de cierto punto no se comprueban los tipos introducidos ni los errores.
 """
 
+# Modificación del path para incluir las demás carpetas, por comodidad a la hora de importar.
+import sys, platform
+if platform.system is 'Windows':
+	sys.path.append(".\src")
+else:
+	sys.path.append("./src")
+
+
 import fechas
 import utilidades
 import datetime
@@ -47,7 +55,11 @@ def pedir_fecha():
 	return fecha
 
 def pedir_fecha_hora():
-	
+	aux = pedir_fecha()
+	h = int(input("Introduce la hora (00-23): "))
+	m = int(input("Introduce los minutos (00 o 30): "))
+	fecha = datetime.datetime(aux.year, aux.month, aux.day, h, m)
+	return fecha
 
 
 def imprimir_opciones():
