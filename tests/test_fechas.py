@@ -1,3 +1,11 @@
+
+# Modificación del path para incluir las demás carpetas, por comodidad a la hora de importar.
+import sys, platform
+if platform.system is 'Windows':
+	sys.path.append(".\src")
+else:
+	sys.path.append("./src")
+
 import unittest
 from fechas import *
 from datetime import *

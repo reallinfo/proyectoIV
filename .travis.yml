@@ -2,5 +2,5 @@ language: python
 python:
   - 3.5
 script:
-  - python ./src/test_fechas.py
-  - python ./src/test_utilidades.py
+  - python ./tests/test_fechas.py
+  - python ./tests/test_utilidades.py
