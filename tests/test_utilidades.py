@@ -44,5 +44,5 @@ class TestUtilidades(unittest.TestCase):
 
 
 if __name__ == '__main__':
-	print("INICIANDO TEST DE LA BIBILIOTECA DE UTILIDADES (utilidades.py)")
+	print("INICIANDO TEST DE LA BIBILIOTECA DE UTILIDADES (src/utilidades.py)")
 	unittest.main()

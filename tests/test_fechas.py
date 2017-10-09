@@ -41,5 +41,5 @@ class TestFechas(unittest.TestCase):
 
 
 if __name__ == '__main__':
-	print("INICIANDO TEST DE LA BIBILIOTECA DE FECHAS (fechas.py)")
+	print("INICIANDO TEST DE LA BIBILIOTECA DE FECHAS (src/fechas.py)")
 	unittest.main()
