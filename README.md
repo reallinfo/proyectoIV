@@ -17,3 +17,7 @@ La estructura de la base de datos se crea y gestiona con la biblioteca de Python
 ```python
 str(año) + str(mes) + str(dia) + ":" + str(hora) + str(minutos)
 ```
+
+Toda la documentación de lo hecho hasta ahora se incluye en sus lugares correspondientes.
+
+Se pueden consultar los horarios (primera interacción con la base de datos).
