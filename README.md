@@ -21,3 +21,5 @@ str(año) + str(mes) + str(dia) + ":" + str(hora) + str(minutos)
 Toda la documentación de lo hecho hasta ahora se incluye en sus lugares correspondientes.
 
 Se pueden consultar los horarios (primera interacción con la base de datos).
+
+Subida a Heroku [aquí](https://radiant-earth-69154.herokuapp.com/), pero en proceso...
