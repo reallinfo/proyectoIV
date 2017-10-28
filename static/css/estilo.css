@@ -6,6 +6,10 @@ main{
 	text-align:center;
 }
 
+header{
+	background-image:url('futbolin.jpg');
+}
+
 #gestion-usuarios{
 	text-align:center;
 	border-right:1px solid #7e8591;
@@ -30,6 +34,8 @@ main{
 }
 
 .jumbotron{
+	color:white;
+	text-align:right;
 	margin:5%;
 }
 
