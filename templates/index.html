@@ -1,12 +1,78 @@
-<html>
-<head>
-<title>App guay</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+{% block bootstrapCDN %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename = 'css/estilo.css') }}" />
+{% endblock %}
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>App guay</title>
+
+  </head>
 
 <body>
-<h1>Elinisio</h1>
+<div class = "container">
+	<header class = "jumbotron">
+	<h1>Bienvenid@</h1>
 
+	</header>
+	<main class = "panel panel-default">
+	<section class = "panel-body">
+	<div class = "row">
+		<div class="col-xs-4" id = "gestion-usuarios" >
+			<h1>Aquí va la zona de usuarios</h1>
+			<div class = "well well-lg">
+			<form id = "login">
+
+				<div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				<input type = "text" placeholder = "Usuario" class = "form-control"/><br/>
+				</div>
+
+				<div class="input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span><input type = "password" placeholder = "Contraseña" class = "form-control"/><br/>
+				</div>
+
+				<div class = "btn-group">
+					<button type = "button" class = "btn btn-primary">Entrar</button>
+					<button type = "button" class = "btn btn-primary">Registrar</button>
+				</div>
+			</form>
+			</div>
+		</div>
+		<div class="col-xs-8" id = "movidas">
+			<h1>Aquí todo lo demás</h1>
+			<ul class = "nav nav-pills" id = "menu">
+				<li class = "active"><a data-toggle = "pill" href = "#rec1">Recurso 1</a></li>
+				<li><a data-toggle = "pill" href = "#rec2">Recurso 2</a></li>
+				<li><a data-toggle = "pill" href = "#rec3">Recurso 3</a></li>
+			</ul>
+
+			<div class = "tab-content">
+				<div id = "rec1" class = "tab-pane fade in active">
+					<p>Movidas del recurso 1</p>
+				</div>
+
+				<div id = "rec2" class = "tab-pane fade">
+					<p>Movidas del recurso 2</p>
+				</div>
+
+				<div id = "rec3" class = "tab-pane fade">
+					<p>Movidas del recurso 3</p>
+				</div>
+
+
+		</div>
+	</div>
+	</section>
+	<footer class = "panel-footer">Yo me llamo Ralph!</footer>
+	</main>
+</div>
 </body>
 
 </html>

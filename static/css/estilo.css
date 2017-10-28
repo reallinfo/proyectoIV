@@ -1,0 +1,44 @@
+body{
+	background-color:#8dacdd;
+}
+
+main{
+	text-align:center;
+}
+
+#gestion-usuarios{
+	text-align:center;
+	border-right:1px solid #7e8591;
+}
+
+#movidas{
+	text-align:center;
+	padding:5%;
+	/* border-left:1px solid #7e8591;*/
+}
+
+#menu{
+	margin:auto;
+	width:80%;
+	margin-bottom:5%;
+	margin-top:5%;
+}
+
+#menu li{
+	width:33%;
+	margin:auto;
+}
+
+.jumbotron{
+	margin:5%;
+}
+
+#login{
+	text-align:center;
+}
+
+
+.btn-group{
+	text-align:center;
+	margin-top:5%;
+}
