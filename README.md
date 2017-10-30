@@ -29,4 +29,5 @@ Se pueden consultar los horarios (primera interacción con la base de datos).
 Subida a Heroku [aquí](https://radiant-earth-69154.herokuapp.com/), pero en proceso...
 
 Para comprobar que la aplicación se está ejecutando podemos comprobar el número de dynos (contenedores de Heroku) que se están ejecutando con la orden del CLI *heroku ps*:
+
 ![img1](dynos_heroku.png)
