@@ -7,9 +7,10 @@ app = Flask(__name__)
 PORT = 8000
 DEBUG = True
 
+
 ''' Set up de la base de datos '''
 parse.uses_netloc.append("postgres")
-url = parse.urlparse(os.environ["DATABASE_URL"])
+url = parse.urlparse(os.environ["https://radiant-earth-69154.herokuapp.com/"])
 
 conn = psycopg2.connect(
 	database=url.path[1:],
