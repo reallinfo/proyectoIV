@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+Scripts/
+Include/
+tcl/
+Lib/
+
+
 # C extensions
 *.so
 

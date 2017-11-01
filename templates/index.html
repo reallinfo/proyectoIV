@@ -27,23 +27,40 @@
 		<div class="col-xs-4" id = "gestion-usuarios" >
 			<h1>Aquí va la zona de usuarios</h1>
 			<div class = "well well-lg">
-			<form id = "login">
 
-				<div class="input-group">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				<input type = "text" placeholder = "Usuario" class = "form-control"/><br/>
-				</div>
+			{% if session['logged_in'] is equalto True%}
+				{% block logged %}
+				<p>Bienvenid@ {{ session['usr'] }}.</p>
 
-				<div class="input-group">
-				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span><input type = "password" placeholder = "Contraseña" class = "form-control"/><br/>
-				</div>
+				<a href = "logout">Desconectar</a>
+				{% endblock %}
 
-				<div class = "btn-group">
-					<button type = "button" class = "btn btn-primary">Entrar</button>
-					<button type = "button" class = "btn btn-primary">Registrar</button>
-				</div>
-			</form>
-			</div>
+			{% else %}
+
+				{% block notlogged %}
+					<form id = "login" method = 'POST'>
+
+						<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input type = "text" placeholder = "Usuario" class = "form-control" name = "usr"/><br/>
+						</div>
+
+						<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span><input type = "password" placeholder = "Contraseña" class = "form-control" name = "pwd"/><br/>
+						</div>
+
+						<p class = "text-danger">{{ session['msg'] }}</p>
+
+						<div class = "btn-group">
+							<button type = "submit" class = "btn btn-primary" name = "entrar">Entrar</button>
+							<button type = "submit" class = "btn btn-primary" name = "registrar">Registrar</button>
+						</div>
+					</form>
+				{% endblock %}
+			{% endif %}
+		</div>
+
+
 		</div>
 		<div class="col-xs-8" id = "movidas">
 			<h1>Aquí todo lo demás</h1>
