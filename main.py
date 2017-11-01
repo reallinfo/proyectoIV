@@ -1,10 +1,24 @@
-import os, shelve
+import os, shelve, psycopg2
 import sqlite3 as sq3
+from urllib import parse
 from flask import Flask, request, render_template, session, redirect
 
 app = Flask(__name__)
 PORT = 8000
 DEBUG = True
+
+''' Set up de la base de datos '''
+parse.uses_netloc.append("postgres")
+url = parse.urlparse(os.environ["DATABASE_URL"])
+
+conn = psycopg2.connect(
+	database=url.path[1:],
+	user=url.username,
+	password=url.password,
+	host=url.hostname,
+	port=url.port
+)
+
 
 
 @app.route('/', methods=['GET', 'POST'])
