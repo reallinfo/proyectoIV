@@ -13,32 +13,34 @@ DEBUG = True
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
+'''
 		client = pymongo.MongoClient('mongodb://prueba:123456@ds245805.mlab.com:45805/base')
 		col = client.base.users_iv
-
+'''
 		session['msg'] = ""
 
 		try:
 			usr = str(request.form['usr'])
 			pwd = str(request.form['pwd'])
-			res = col.find()
-		except:
+		'''	res = col.find()
+'''		except:
 			session['msg'] = "Los datos introducidos no son válidos"
 			usr = 'error'
 			pwd = 'error'
 
 		if ('entrar' in request.form) and (usr != 'error'):
-			session['logged_in'] = False
-
+			session['logged_in'] = True
+			session['usr'] = usr
+'''
 			for i in res:
 				aux = i
 				if (aux['user'] == usr) and (aux['pass'] == pwd):
 					session['logged_in'] = True
 					session['usr'] = usr
-
+'''
 			if not session['logged_in']:
 				session['msg'] = "Los datos introducidos no se corresponden con los de ningún usuario registrado"
-
+'''
 		elif ('registrar' in request.form) and (usr != 'error'):
 			existe = False
 			for i in res:
@@ -51,6 +53,7 @@ def index():
 			else:
 				col.insert_one( {'user':usr, 'pass':pwd} )
 				session['msg'] = "¡Usuario creado con éxito! Ya puedes acceder..."
+'''
 	return render_template('index.html')
 
 @app.route('/logout')
