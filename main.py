@@ -50,7 +50,6 @@ def index():
 				session['msg'] = "¡Usuario creado con éxito! Ya puedes acceder..."
 			else:
 				session['msg'] = "Ya existe un usuario con ese nombre"
-		conn.close()
 	return render_template('index.html')
 
 @app.route('/logout')
