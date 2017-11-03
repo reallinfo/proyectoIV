@@ -4,4 +4,12 @@
   "image": "heroku/python",
   "repository": "https://github.com/berbus/proyectoIV",
   "keywords": ["python", "flask" ]
+
+  "environments": {
+      "test": {
+        "scrpits": {
+          "test": "test-secret"
+        }
+      }
+    }
 }
