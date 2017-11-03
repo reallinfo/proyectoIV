@@ -13,9 +13,10 @@ Queda por determinar la forma más conveniente de almacenar la información de l
 
 Para llevar a cabo los tests sobre el código se va a utilizar la biblioteca `unittest` de Python. Estos tests se ejecutarán a través de `Travis CI`. Los tests se encuentran el la carpeta *./tests*.
 
-La estructura de la base de datos se crea y gestiona con la biblioteca de Python `sqlite3`, se encuentra en la carpeta *./src* y se estructura de la siguiente forma:
-- Una tabla *futbolin* en la que se almacenan un identificador (id) de la reserva, la fecha en formato AAAAMMDD, la hora en forma HHMM y el correo de quién la haya realizado (email). El id consiste en
+La estructura de la base de datos se crea y gestiona conuna base de datos remota que usa MongoDB que se estructura de la siguiente forma:
+- Una colección *users_iv* que almacena documentos con parejas de usuarios (user) y sus contraseñas (pass) de momento en texto plano. No puede haber dos usuarios con el mismo nombre.
 
+- Una colección *futbolin* en la que se almacenan documentos con un identificador (id) de la reserva, la fecha en formato AAAAMMDD, la hora en forma HHMM y el correo de quién la haya realizado (email). El id consiste en
 
 ```python
 str(año) + str(mes) + str(dia) + ":" + str(hora) + str(minutos)
