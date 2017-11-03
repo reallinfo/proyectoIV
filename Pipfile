@@ -5,13 +5,16 @@ verify_ssl = true
 [packages]
 dj-database-url = "*"
 django = "*"
-gunicorn = "*"
-psycopg2 = "*"
-whitenoise = "*"
-flask = "*"
-pymongo = "*"
 flask-pymongo = "*"
-
+flask = "*"
+gunicorn = "*"
+itsdangerous = "*"
+Jinja2 = "*"
+MarkupSafe = "*"
+pymongo = "*"
+psycopg2 = "*"
+Werkzeug = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.6.2"
