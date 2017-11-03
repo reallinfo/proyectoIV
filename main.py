@@ -21,13 +21,13 @@ def index():
 		try:
 			usr = str(request.form['usr'])
 			pwd = str(request.form['pwd'])
+			res = col.find()
 		except:
 			session['msg'] = "Los datos introducidos no son válidos"
 			usr = 'error'
 			pwd = 'error'
 
-		if 'entrar' in request.form:
-			res = col.find()
+		if ('entrar' in request.form) and (usr != 'error'):
 			session['logged_in'] = False
 
 			for i in res:
@@ -39,17 +39,18 @@ def index():
 			if not session['logged_in']:
 				session['msg'] = "Los datos introducidos no se corresponden con los de ningún usuario registrado"
 
-		elif 'registrar' in request.form:
-			query = "SELECT user FROM usuarios WHERE user = '" + usr + "'"
-			db.execute(query)
-			print(query)
+		elif ('registrar' in request.form) and (usr != 'error'):
+			existe = False
+			for i in res:
+				aux = i
+				if aux['user'] == usr:
+					existe = True
 
-			if not db.fetchone():
-				query = "INSERT INTO usuarios ('user','pass') VALUES ('" + usr + "','" + pwd + "')"
-				print(query)
-				session['msg'] = "¡Usuario creado con éxito! Ya puedes acceder..."
-			else:
+			if existe:
 				session['msg'] = "Ya existe un usuario con ese nombre"
+			else:
+				col.insert_one( {'user':usr, 'pass':pwd} )
+				session['msg'] = "¡Usuario creado con éxito! Ya puedes acceder..."
 	return render_template('index.html')
 
 @app.route('/logout')
