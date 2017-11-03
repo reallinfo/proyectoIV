@@ -1,4 +1,4 @@
-import os, shelve
+import os, shelve, pymongo
 import sqlite3 as sq3
 from urllib import parse
 from flask import Flask, request, render_template, session, redirect
@@ -8,6 +8,7 @@ PORT = 8000
 DEBUG = True
 
 
+client = pymongo.MongoClient('mongodb://prueba:123456@ds245805.mlab.com:45805/base')
 
 
 @app.route('/', methods=['GET', 'POST'])

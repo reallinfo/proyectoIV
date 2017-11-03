@@ -9,6 +9,7 @@ gunicorn = "*"
 psycopg2 = "*"
 whitenoise = "*"
 flask = "*"
+pymongo = "*"
 
 [requires]
-python_version = "3.5"
+python_version = "3.6.2"
