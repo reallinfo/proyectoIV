@@ -9,11 +9,11 @@ DEBUG = True
 
 
 ''' Set up de la base de datos '''
-parse.uses_netloc.append("postgres")
-'''url = parse.urlparse(os.environ["DATABASE_URL"])'''
-
-
 '''
+parse.uses_netloc.append("postgres")
+url = parse.urlparse(os.environ["DATABASE_URL"])
+
+
 conn = psycopg2.connect(
 	database=url.path[1:],
 	user=url.username,
