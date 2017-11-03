@@ -8,14 +8,13 @@ PORT = 8000
 DEBUG = True
 
 
-client = pymongo.MongoClient('mongodb://prueba:123456@ds245805.mlab.com:45805/base')
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
-		conn = sq3.connect('datos.db')
-		db = conn.cursor()
+		client = pymongo.MongoClient('mongodb://prueba:123456@ds245805.mlab.com:45805/base')
+		col = client.base.users_iv
 
 		session['msg'] = ""
 
@@ -28,13 +27,16 @@ def index():
 			pwd = 'error'
 
 		if 'entrar' in request.form:
-			query = "SELECT user FROM usuarios WHERE user = '" + usr + "' and pass = '" + pwd + "'"
-			db.execute(query)
+			res = col.find()
+			session['logged_in'] = False
 
-			if db.fetchone():
-				session['logged_in'] = True
-				session['usr'] = usr
-			else:
+			for i in res:
+				aux = i
+				if (aux['user'] == usr) and (aux['pass'] == pwd):
+					session['logged_in'] = True
+					session['usr'] = usr
+
+			if not session['logged_in']:
 				session['msg'] = "Los datos introducidos no se corresponden con los de ningún usuario registrado"
 
 		elif 'registrar' in request.form:
