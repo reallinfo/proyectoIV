@@ -10,6 +10,10 @@ MONGO_URL = os.environ.get('MONGO_URL', "error db")
 
 print(MONGO_URL)
 
+@app.route('/hiii')
+def getvar():
+	return str(MONGO_URL)
+
 ''' mongodb://prueba:123456@ds245805.mlab.com:45805/basec '''
 @app.route('/', methods=['GET', 'POST'])
 def index():
