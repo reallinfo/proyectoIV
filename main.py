@@ -7,8 +7,12 @@ app = Flask(__name__)
 PORT = 8000
 DEBUG = True
 MONGO_URL = os.environ.get('MONGO_URL', "error db")
+MONGO_URI = os.environ.get('MONGO_URI', "error db")
 
 print(MONGO_URL)
+print(MONGO_URI)
+
+
 
 @app.route('/hiii')
 def getvar():
