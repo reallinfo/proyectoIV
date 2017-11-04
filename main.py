@@ -29,6 +29,8 @@ def index():
 		for i in res:
 			r += i + "<br/>"
 
+		return r
+
 		try:
 			usr = str(request.form['usr'])
 			pwd = str(request.form['pwd'])
