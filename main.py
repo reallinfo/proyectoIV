@@ -7,10 +7,8 @@ app = Flask(__name__)
 PORT = 8000
 DEBUG = True
 MONGO_URL = os.environ.get('MONGO_URL', "error db")
-MONGO_URI = os.environ.get('MONGO_URI', "error db")
 
 print(MONGO_URL)
-print(MONGO_URI)
 
 
 
@@ -22,10 +20,14 @@ def getvar():
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
-		return str(MONGO_URL) + "\n" + str(MONGO_URI)
 		client = pymongo.MongoClient(MONGO_URL)
 		col = client.base.users_iv
 		session['msg'] = ""
+
+		res = col.fing()
+		r = "<br/>"
+		for i in res:
+			r += i + "<br/>"
 
 		try:
 			usr = str(request.form['usr'])
@@ -61,7 +63,7 @@ def index():
 			else:
 				col.insert_one( {'user':usr, 'pass':pwd} )
 				session['msg'] = "¡Usuario creado con éxito! Ya puedes acceder..."
-
+		client.close()
 	return render_template('index.html')
 
 @app.route('/logout')
