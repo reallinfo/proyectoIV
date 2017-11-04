@@ -22,7 +22,7 @@ def getvar():
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
-		print(MONGO_URL)
+		return str(MONGO_URL) + "\n" + str(MONGO_URI)
 		client = pymongo.MongoClient(MONGO_URL)
 		col = client.base.users_iv
 		session['msg'] = ""
