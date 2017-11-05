@@ -6,7 +6,9 @@ from flask import Flask, request, render_template, session, redirect
 app = Flask(__name__)
 PORT = 8000
 DEBUG = True
-MONGO_URL = os.environ.get('MONGO_URL', "error db")
+
+''' Borrar la segunda parte cuando esto funcione '''
+MONGO_URL = os.environ.get('MONGO_URL', "mongodb://prueba:123456@ds245805.mlab.com:45805/basec")
 
 print(MONGO_URL)
 
