@@ -8,7 +8,7 @@ app.secret_key = os.urandom(12)
 
 PORT = 8000
 DEBUG = True
-MONGO_URL = os.environ.get('MONGO_URL', "error db")
+MONGO_URL = os.environ.get('MONGO_URL', "mongodb://prueba:123456@ds245805.mlab.com:45805/basec")
 
 print(MONGO_URL)
 
