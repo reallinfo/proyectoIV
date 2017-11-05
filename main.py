@@ -62,13 +62,53 @@ def index():
 		client.close()
 	return render_template('index.html')
 
+
 @app.route('/logout')
 def logout():
 	session.pop('logged_in', None)
-	session['msg'] = ""
-	session['usr'] = ""
-
+	session.pop('msg', None)
+	session.pop('usr', None)
 	return redirect('/')
+
+
+@app.route('/cambiopass', methods = ['POST'])
+def cambiopass():
+	client = pymongo.MongoClient(MONGO_URL)
+	col = client.base.users_iv
+	session['msg'] = ""
+	session['cambio_pass'] = True
+
+	pwdn2 = str(request.form['nueva2'])
+	print(pwdn2)
+
+	try:
+		usr = session.get('usr')
+		pwd = str(request.form['anterior'])
+		pwdn1 = str(request.form['nueva1'])
+		pwdn2 = str(request.form['nueva2'])
+	except:
+		session['msg'] = "Los datos introducidos no son válidos"
+		usr = 'error'
+		pwd = 'error'
+		pwdn1 = 'error'
+		pwdn2 = 'error'
+
+	if pwdn1 != pwdn2:
+		session['msg'] = "Las contraseñas introducidas no coinciden"
+		usr = 'error'
+	elif pwd == pwdn1:
+		session['msg'] = "La contraseña nueva debe ser diferente de la actual"
+		usr = 'error'
+
+	if not (usr == 'error' or pwd == 'error' or pwdn1 == 'error' or pwdn2 == 'error'):
+		res = col.find()
+		for i in res:
+			aux = i
+			if (aux['user'] == usr) and (aux['pass'] == pwd):
+				col.update_one( {'user':usr}, {'$pass':pwdn1} )
+				session['msg'] = "La contraseña se ha actualizado con éxito"
+	return session['msg']
+
 
 
 if __name__ == '__main__':
