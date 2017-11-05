@@ -70,7 +70,7 @@ def logout():
 def cambiopass():
 	client = pymongo.MongoClient(MONGO_URL)
 	col = client.base.users_iv
-	session['msg'] = ""
+	session['msg'] = "Vamos allá"
 	session['cambio_pass'] = True
 
 	pwdn2 = str(request.form['nueva2'])
@@ -100,9 +100,12 @@ def cambiopass():
 		for i in res:
 			aux = i
 			if (aux['user'] == usr) and (aux['pass'] == pwd):
-				col.update_one( {'user':usr}, {'$pass':pwdn1} )
+				col.update_one( {'user':usr}, {'$set': {'pass':pwdn1} } )
 				session['msg'] = "La contraseña se ha actualizado con éxito"
-	return session['msg']
+			elif (aux['user'] == usr):
+				session['msg'] = "La contraseña introducida como actual no es correcta"
+				
+	return redirect('/')
 
 
 
