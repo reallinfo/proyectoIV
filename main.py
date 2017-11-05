@@ -16,6 +16,7 @@ print(MONGO_URL)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+	print("si pasa")
 	if request.method == 'POST':
 		client = pymongo.MongoClient(MONGO_URL)
 		col = client.base.users_iv
@@ -77,17 +78,17 @@ def cambiopass():
 		pwdn1 = str(request.form['nueva1'])
 		pwdn2 = str(request.form['nueva2'])
 	except:
-		session['msg'] = "Los datos introducidos no son válidos"
+		session['msg'] = "Los datos introducidos no son válidos."
 		usr = 'error'
 		pwd = 'error'
 		pwdn1 = 'error'
 		pwdn2 = 'error'
 
 	if pwdn1 != pwdn2:
-		session['msg'] = "Las contraseñas introducidas no coinciden"
+		session['msg'] = "Las contraseñas introducidas no coinciden."
 		usr = 'error'
 	elif pwd == pwdn1:
-		session['msg'] = "La contraseña nueva debe ser diferente de la actual"
+		session['msg'] = "La contraseña nueva debe ser diferente de la actual."
 		usr = 'error'
 
 	if not (usr == 'error' or pwd == 'error' or pwdn1 == 'error' or pwdn2 == 'error'):
