@@ -1,4 +1,4 @@
-{% extends "cosas.html" %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,10 +33,17 @@
 				<p>Bienvenid@ {{ session['usr'] }}.</p>
 				<a href = "logout">Desconectar</a>
 
-					{% block cambiopass %}
-					{{ super() }}
 
-					{% endblock %}
+				<h2>Cambio de contraseña</h2>
+
+				<form id = "cambiopass" method = "POST" target = "/cambiopass">
+
+				<input type = "password" placeholder="Contraseña anterior" name = "anterior" />
+				<input type = "password" placeholder= "Nueva contraseña" name = "nueva1" />
+				<input type = "password" placeholder= "Repetir nueva contraseña" name = "nueva2" />
+				<input type = "submit" name = "inputcambio" value = "Cambiar contraseña" />
+
+				</form>
 
 				{% endblock %}
 
