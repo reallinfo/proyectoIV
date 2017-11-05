@@ -33,7 +33,7 @@
 				<a href = "logout">Desconectar</a></p>
 				<br /><br />
 
-				<p class = "text-danger">{{ session['msg'] }}</p>
+				<p class = "text-danger">{{ session.get('msg') }}</p>
 				<form id = "cambiopass" method = "POST" action = "cambiopass">
 
 				<div class="input-group">
