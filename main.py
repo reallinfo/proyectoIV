@@ -37,8 +37,6 @@ def index():
 			pwd = 'error'
 
 		if ('entrar' in request.form) and (usr != 'error'):
-			session['logged_in'] = True
-			session['usr'] = usr
 
 			for i in res:
 				aux = i
