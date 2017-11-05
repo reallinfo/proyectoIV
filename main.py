@@ -66,7 +66,7 @@ def logout():
 	session.pop('usr', None)
 	return redirect('/')
 
-
+'''
 @app.route('/cambiopass', methods = ['POST'])
 def cambiopass():
 	client = pymongo.MongoClient(MONGO_URL)
@@ -102,7 +102,7 @@ def cambiopass():
 				session['msg'] = "Contraseña actual inválida"
 
 	return redirect('/')
-
+'''
 
 
 if __name__ == '__main__':
