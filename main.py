@@ -29,7 +29,7 @@ def index():
 		res = col.find()
 		r = "<br/>"
 		for i in res:
-			r += i + "<br/>"
+			r += str(i) + "<br/>"
 
 		return r
 
