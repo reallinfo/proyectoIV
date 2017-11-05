@@ -10,7 +10,7 @@ PORT = 8000
 DEBUG = True
 
 ''' Cuando acabe con las pruebas cambiaré la contraseña y quitaré esto. '''
-MONGO_URL = os.environ.get('MONGO_URL')
+MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.com:45805/base')
 
 print(MONGO_URL)
 
