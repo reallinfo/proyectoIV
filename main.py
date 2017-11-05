@@ -24,6 +24,8 @@ def index():
 			usr = str(request.form['usr'])
 			pwd = str(request.form['pwd'])
 			res = col.find()
+			if (len(usr) < 6) or (len(pwd) < 6) or (len(usr) > 20) or (len(pwd) > 20):
+				raise Exception
 		except:
 			session['msg'] = "Los datos introducidos no son válidos."
 			usr = 'error'
@@ -75,12 +77,11 @@ def cambiopass():
 		pwd = str(request.form['anterior'])
 		pwdn1 = str(request.form['nueva1'])
 		pwdn2 = str(request.form['nueva2'])
+		if (len(pwd1) < 6) or (len(pwdn1) > 20):
+			raise Exception
 	except:
-		session['msg'] = "Los datos no son válidos."
+		session['msg'] = "Los datos introducidos no son válidos."
 		usr = 'error'
-		pwd = 'error'
-		pwdn1 = 'error'
-		pwdn2 = 'error'
 
 	if pwdn1 != pwdn2:
 		session['msg'] = "Las contraseñas no coinciden."
@@ -89,7 +90,7 @@ def cambiopass():
 		session['msg'] = "La nueva contraseña debe ser distinta de la anterior."
 		usr = 'error'
 
-	if not (usr == 'error' or pwd == 'error' or pwdn1 == 'error' or pwdn2 == 'error'):
+	if not (usr == 'error'):
 		res = col.find()
 		for i in res:
 			aux = i
