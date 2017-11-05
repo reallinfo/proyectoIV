@@ -41,5 +41,5 @@ class TestRecurso(unittest.TestCase):
 		print("OK")
 
 if __name__ == '__main__':
-	print("INICIANDO TEST DE LA BIBILIOTECA DE LA CLASE RECURSO (src/recurso.py)")
+	print("INICIANDO TEST DE LA CLASE RECURSO (src/recurso.py)")
 	unittest.main()
