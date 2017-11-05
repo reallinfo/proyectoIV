@@ -34,5 +34,7 @@ Para comprobar que la aplicación se está ejecutando podemos comprobar el núme
 
 Cosas que ya hace la aplicación:
 
-- [X] Login de usuarios
-- [X] Registro de usuarios
+- [X] Base de datos funcionando (MonoDB).
+- [X] Login de usuarios.
+- [X] Registro de usuarios.
+- [ ] Los usuaris pueden cambiar su contraseña.
