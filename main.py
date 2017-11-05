@@ -99,7 +99,7 @@ def cambiopass():
 				col.update_one( {'user':usr}, {'$set': {'pass':pwdn1} } )
 				session['msg'] = "Contraseña cambiada"
 			elif (aux['user'] == usr):
-			session['msg'] = "Contraseña actual inválida"
+				session['msg'] = "Contraseña actual inválida"
 
 	return redirect('/')
 
