@@ -44,7 +44,7 @@ def index():
 					session['logged_in'] = True
 					session['usr'] = usr
 
-			if not session['logged_in'] == True:
+			if not session['logged_in']:
 				session['msg'] = "Los datos introducidos no se corresponden con los de ningún usuario registrado"
 
 		elif ('registrar' in request.form) and (usr != 'error'):
