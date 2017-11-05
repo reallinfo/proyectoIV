@@ -8,12 +8,6 @@ app.secret_key = "cosabrutalmentealeatoriacuidado"
 
 PORT = 8000
 DEBUG = True
-<<<<<<< HEAD
-
-''' Borrar la segunda parte cuando esto funcione '''
-MONGO_URL = os.environ.get('MONGO_URL', "mongodb://prueba:123456@ds245805.mlab.com:45805/basec")
-=======
->>>>>>> 806b7009f2b41ee94bb826e78c33aca82c0a0217
 
 ''' Cuando acabe con las pruebas cambiaré la contraseña y quitaré esto. '''
 MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.com:45805/base')

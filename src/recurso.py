@@ -21,7 +21,7 @@ class Recurso:
 				raise ValueError
 		except:
 			''' valores por defecto '''
-			nombre = "erorr"
+			nombre = "error"
 			t_min = 0
 			t_max = 0
 
@@ -45,13 +45,16 @@ class Recurso:
 	def get_t_max(self):
 		return self.t_max
 
+
 	''' Setters '''
 	def set_nombre(self, nombre):
 		try:
 			nombre = str(nombre)
 			self.nombre = nombre
+			return True
 		except:
-			print("Parámetro incorrecto: set_nombre(str)")
+			return False
+
 
 	def set_t_min(self, t_min):
 		try:
@@ -63,8 +66,10 @@ class Recurso:
 				self.t_max = t_min
 			else:
 				self.t_min = t_min
+			return True
 		except:
-			print("Parámetro incorrecto: t_min(int >0)")
+			return False
+
 
 	def set_t_max(self, t_max):
 		try:
@@ -76,8 +81,10 @@ class Recurso:
 				self.t_min = t_max
 			else:
 				self.t_max = t_max
+			return True
 		except:
-			print("Parámetro incorrecto: t_max(int >0)")
+			return False
+
 
 	def imprimir_recurso(self):
 		print(str(self.nombre) + ": " + str(self.t_min) + ", " + str(self.t_max))

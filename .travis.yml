@@ -4,3 +4,4 @@ python:
 script:
   - python ./tests/test_fechas.py
   - python ./tests/test_utilidades.py
+  - python ./tests/test_recurso.py
