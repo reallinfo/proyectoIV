@@ -8,7 +8,7 @@ app.secret_key = os.urandom(12)
 
 PORT = 8000
 DEBUG = True
-MONGO_URL = os.environ.get('MONGO_URL', "mongodb://prueba:123456@ds245805.mlab.com:45805/basec")
+MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.com:45805/base')
 
 print(MONGO_URL)
 
@@ -66,7 +66,8 @@ def index():
 
 @app.route('/logout')
 def logout():
-	session.pop('logged_in')
+	''' session.pop('logged_in') '''
+	session['logged_in'] = False
 	session.pop('msg')
 	session.pop('usr')
 	return redirect('/')
