@@ -26,6 +26,7 @@
 	<div class = "row">
 		<div class="col-xs-4" id = "gestion-usuarios" >
 			<div class = "well well-lg">
+        <h1>{{ session['logged_in'] }}</h1>
 			{% if session['logged_in'] is equalto True%}
 				{% block logged %}
 				<p>Bienvenid@ {{ session['usr'] }}.

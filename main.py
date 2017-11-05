@@ -71,7 +71,6 @@ def cambiopass():
 	client = pymongo.MongoClient(MONGO_URL)
 	col = client.base.users_iv
 	session['msg'] = "Vamos allá"
-
 	try:
 		usr = session.get('usr')
 		pwd = str(request.form['anterior'])
