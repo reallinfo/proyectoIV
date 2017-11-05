@@ -26,7 +26,7 @@ def index():
 		col = client.base.users_iv
 		session['msg'] = ""
 
-		res = col.fing()
+		res = col.find()
 		r = "<br/>"
 		for i in res:
 			r += i + "<br/>"
