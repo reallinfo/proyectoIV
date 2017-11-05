@@ -27,12 +27,6 @@ def index():
 		session['msg'] = ""
 
 		res = col.find()
-		r = "<br/>"
-		for i in res:
-			r += str(i) + "<br/>"
-
-		return r
-
 		try:
 			usr = str(request.form['usr'])
 			pwd = str(request.form['pwd'])
