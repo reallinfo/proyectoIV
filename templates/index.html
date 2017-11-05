@@ -1,4 +1,4 @@
-
+{% extends "cosas.html" %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,8 +31,13 @@
 			{% if session['logged_in'] is equalto True%}
 				{% block logged %}
 				<p>Bienvenid@ {{ session['usr'] }}.</p>
-
 				<a href = "logout">Desconectar</a>
+
+					{% block cambiopass %}
+					{{ super() }}
+
+					{% endblock %}
+
 				{% endblock %}
 
 			{% else %}
