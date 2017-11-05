@@ -8,17 +8,12 @@ app.secret_key = os.urandom(12)
 
 PORT = 8000
 DEBUG = True
-MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.com:45805/base')
+
+''' Cuando acabe con las pruebas cambiaré la contraseña y quitaré esto. '''
+MONGO_URL = os.environ.get('MONGO_URL')
 
 print(MONGO_URL)
 
-
-
-@app.route('/hiii')
-def getvar():
-	return str(MONGO_URL)
-
-''' mongodb://prueba:123456@ds245805.mlab.com:45805/basec '''
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
