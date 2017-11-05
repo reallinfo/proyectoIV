@@ -18,44 +18,46 @@ print(MONGO_URL)
 def index():
 	print("si pasa")
 	if request.method == 'POST':
-		client = pymongo.MongoClient(MONGO_URL)
-		col = client.base.users_iv
-		session['msg'] = ""
 
-		res = col.find()
-		try:
-			usr = str(request.form['usr'])
-			pwd = str(request.form['pwd'])
+		if not session.get('logged_in'):
+			client = pymongo.MongoClient(MONGO_URL)
+			col = client.base.users_iv
+			session['msg'] = ""
 			res = col.find()
-		except:
-			session['msg'] = "Datos no válidos"
-			usr = 'error'
-			pwd = 'error'
+			try:
+				usr = str(request.form['usr'])
+				pwd = str(request.form['pwd'])
+				res = col.find()
+			except:
+				session['msg'] = "Datos no válidos"
+				usr = 'error'
+				pwd = 'error'
 
-		if ('entrar' in request.form) and (usr != 'error'):
+			if ('entrar' in request.form) and (usr != 'error'):
 
-			for i in res:
-				aux = i
-				if (aux['user'] == usr) and (aux['pass'] == pwd):
-					session['logged_in'] = True
-					session['usr'] = usr
+				for i in res:
+					aux = i
+					if (aux['user'] == usr) and (aux['pass'] == pwd):
+						session['logged_in'] = True
+						session['usr'] = usr
 
-			if not session.get('logged_in'):
-				session['msg'] = "Datos incorrectos"
+				if not session.get('logged_in'):
+					session['msg'] = "Datos incorrectos"
 
-		elif ('registrar' in request.form) and (usr != 'error'):
-			existe = False
-			for i in res:
-				aux = i
-				if aux['user'] == usr:
-					existe = True
+			elif ('registrar' in request.form) and (usr != 'error'):
+				existe = False
+				for i in res:
+					aux = i
+					if aux['user'] == usr:
+						existe = True
 
-			if existe:
-				session['msg'] = "Ya existe un usuario con ese nombre"
-			else:
-				col.insert_one( {'user':usr, 'pass':pwd} )
-				session['msg'] = "¡Usuario creado con éxito!"
-		client.close()
+				if existe:
+					session['msg'] = "Ya existe un usuario con ese nombre"
+				else:
+					col.insert_one( {'user':usr, 'pass':pwd} )
+					session['msg'] = "¡Usuario creado con éxito!"
+			client.close()
+			
 	return render_template('index.html')
 
 
