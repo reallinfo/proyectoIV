@@ -15,6 +15,7 @@ MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.c
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+	session.pop('msg', None)
 	if request.method == 'POST' and not session.get('logged_in'):
 		client = pymongo.MongoClient(MONGO_URL)
 		col = client.base.users_iv
