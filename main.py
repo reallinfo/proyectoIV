@@ -71,10 +71,6 @@ def cambiopass():
 	client = pymongo.MongoClient(MONGO_URL)
 	col = client.base.users_iv
 	session['msg'] = "Vamos allá"
-	session['cambio_pass'] = True
-
-	pwdn2 = str(request.form['nueva2'])
-	print(pwdn2)
 
 	try:
 		usr = session.get('usr')
@@ -104,7 +100,7 @@ def cambiopass():
 				session['msg'] = "La contraseña se ha actualizado con éxito"
 			elif (aux['user'] == usr):
 				session['msg'] = "La contraseña introducida como actual no es correcta"
-				
+
 	return redirect('/')
 
 
