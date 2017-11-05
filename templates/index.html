@@ -25,14 +25,37 @@
 	<section class = "panel-body">
 	<div class = "row">
 		<div class="col-xs-4" id = "gestion-usuarios" >
-			<h1>Aquí va la zona de usuarios</h1>
 			<div class = "well well-lg">
-
 			{% if session['logged_in'] is equalto True%}
 				{% block logged %}
-				<p>Bienvenid@ {{ session['usr'] }}.</p>
+				<p>Bienvenid@ {{ session['usr'] }}.
+				<a href = "logout">Desconectar</a></p>
+				<br /><br />
 
-				<a href = "logout">Desconectar</a>
+				<p class = "text-danger">{{ session.get('msg') }}</p>
+				<form id = "cambiopass" method = "POST" action = "cambiopass">
+
+				<div class="input-group">
+    			<label for="pwd1">Contraseña actual:</label>
+				<input type = "password" placeholder="Contraseña actual" name = "anterior" class = "form-control"  />
+				</div><br />
+
+				<div class="input-group">
+    			<label for="pwd2">Nueva contraseña:</label>
+				<input type = "password" placeholder= "Nueva contraseña" name = "nueva1" class = "form-control" />
+				</div><br />
+
+				<div class="input-group">
+    			<label for="pwd3">Repetir nueva contraseña:</label>
+				<input type = "password" placeholder= "Repetir nueva contraseña" name = "nueva2" class = "form-control" />
+				</div><br />
+
+				<div class = "btn-group">
+				<input type = "submit" name = "inputcambiopass" value = "Cambiar contraseña" class = "btn btn-primary" />
+				</div>
+
+				</form>
+
 				{% endblock %}
 
 			{% else %}
