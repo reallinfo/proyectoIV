@@ -68,8 +68,9 @@ def index():
 def logout():
 	''' session.pop('logged_in') '''
 	session['logged_in'] = False
-	session.pop('msg')
-	session.pop('usr')
+	session['msg'] = ""
+	session['usr'] = ""
+
 	return redirect('/')
 
 
