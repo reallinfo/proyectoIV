@@ -26,14 +26,13 @@
 	<div class = "row">
 		<div class="col-xs-4" id = "gestion-usuarios" >
 			<div class = "well well-lg">
-        <h1>Logged_in:  {{ session['logged_in'] }}</h1>
 			{% if session['logged_in'] is equalto True%}
 				{% block logged %}
 				<p>Bienvenid@ {{ session['usr'] }}.
 				<a href = "logout">Desconectar</a></p>
 				<br /><br />
 
-				<!-- p class = "text-danger">{{ session.get('msg') }}</p -->
+				<p class = "text-danger">{{ session.get('msg') }}</p>
 				<form id = "cambiopass" method = "POST" action = "cambiopass">
 
 				<div class="input-group">

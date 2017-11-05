@@ -25,7 +25,7 @@ def index():
 			pwd = str(request.form['pwd'])
 			res = col.find()
 		except:
-			session['msg'] = "Datos no válidos"
+			session['msg'] = "Los datos introducidos no son válidos."
 			usr = 'error'
 			pwd = 'error'
 
@@ -38,7 +38,7 @@ def index():
 					session['usr'] = usr
 
 			if not session.get('logged_in'):
-				session['msg'] = "Datos incorrectos"
+				session['msg'] = "El usuario dado no coincide con la contraseña."
 
 		elif ('registrar' in request.form) and (usr != 'error'):
 			existe = False
@@ -48,10 +48,10 @@ def index():
 					existe = True
 
 			if existe:
-				session['msg'] = "Ya existe un usuario con ese nombre"
+				session['msg'] = "Ya existe un usuario con ese nombre."
 			else:
 				col.insert_one( {'user':usr, 'pass':pwd} )
-				session['msg'] = "¡Usuario creado con éxito!"
+				session['msg'] = "¡Usuario creado con éxito! Ya puedes entrar..."
 		client.close()
 
 	return render_template('index.html')
@@ -76,17 +76,17 @@ def cambiopass():
 		pwdn1 = str(request.form['nueva1'])
 		pwdn2 = str(request.form['nueva2'])
 	except:
-		session['msg'] = "Datos no válidos"
+		session['msg'] = "Los datos no son válidos."
 		usr = 'error'
 		pwd = 'error'
 		pwdn1 = 'error'
 		pwdn2 = 'error'
 
 	if pwdn1 != pwdn2:
-		session['msg'] = "Contraseñas no coinciden"
+		session['msg'] = "Las contraseñas no coinciden."
 		usr = 'error'
 	elif pwd == pwdn1:
-		session['msg'] = "Contraseña igual que anterior"
+		session['msg'] = "La nueva contraseña debe ser distinta de la anterior."
 		usr = 'error'
 
 	if not (usr == 'error' or pwd == 'error' or pwdn1 == 'error' or pwdn2 == 'error'):
@@ -95,9 +95,9 @@ def cambiopass():
 			aux = i
 			if (aux['user'] == usr) and (aux['pass'] == pwd):
 				col.update_one( {'user':usr}, {'$set': {'pass':pwdn1} } )
-				session['msg'] = "Contraseña cambiada"
+				session['msg'] = "¡Contraseña cambiada!"
 			elif (aux['user'] == usr):
-				session['msg'] = "Contraseña actual inválida"
+				session['msg'] = "Contraseña actual incorrecta."
 
 	return redirect('/')
 
