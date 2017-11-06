@@ -1,5 +1,4 @@
 import os, pymongo
-import sqlite3 as sq3
 from urllib import parse
 from flask import Flask, request, render_template, session, redirect
 
