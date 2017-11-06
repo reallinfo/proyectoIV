@@ -50,3 +50,7 @@ header{
 	text-align:center;
 	margin-top:5%;
 }
+
+.escondido{
+	display:none;
+}

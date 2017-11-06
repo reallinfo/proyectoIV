@@ -14,15 +14,6 @@
 	<meta charset="utf-8">
 	<title>App guay</title>
 
-	<script>
-		$(document).ready(function(){
-			$("#pr").click(function(){
-				$("#cambiopass").slideToggle("slow");
-			});
-		});
-
-	</script>
-
 </head>
 
 <body>
@@ -44,11 +35,8 @@
 				<a href = "logout">Desconectar</a></p>
 				<br /><br />
 
-
-				<button type="button" id = "pr" class="btn btn-info">Cambiar contraseña</button>
-
 				<p class = "text-danger">{{ session.get('msg') }}</p>
-				<form id = "cambiopass" method = "POST" action = "cambiopass" class = "escondido">
+				<form id = "cambiopass" method = "POST" action = "cambiopass">
 
 				<div class="input-group">
     			<label for="pwd1">Contraseña actual:</label>
@@ -66,7 +54,7 @@
 				</div><br />
 
 				<div class = "btn-group">
-				<input type = "submit" name = "inputcambiopass" value = "Cambiar" class = "btn btn-primary" />
+				<input type = "submit" name = "inputcambiopass" value = "Cambiar contraseña" class = "btn btn-primary" />
 				</div>
 
 				</form>

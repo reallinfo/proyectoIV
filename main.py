@@ -14,11 +14,10 @@ MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.c
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-	session.pop('msg', None)
+	session['msg'] = ""
 	if request.method == 'POST' and not session.get('logged_in'):
 		client = pymongo.MongoClient(MONGO_URL)
 		col = client.base.users_iv
-		session['msg'] = ""
 		res = col.find()
 		try:
 			usr = str(request.form['usr'])
