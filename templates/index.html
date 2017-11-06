@@ -8,6 +8,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename = 'css/estilo.css') }}" />
+
 {% endblock %}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +31,10 @@
 
 			$("#fondo-verde").click(function(){
 				document.body.style.backgroundColor = "#86e57e";
+			});
+
+			$("#cc").click(function(){
+				$("#consulta-calendario").slideToggle("slow");
 			});
 
 		});
@@ -121,7 +126,49 @@
 
 			<div class = "tab-content">
 				<div id = "rec1" class = "tab-pane fade in active">
-					<p>Movidas del recurso 1</p>
+					<button id = "cc" type = "button" class = "btn btn-primary btn-block">Consultar calendario</button>
+
+					<!-- HTML para la consulta del calendario -->
+					<div id = "consulta-calendario" class = "escondido">
+						<br />
+						<div class="container">
+							<div class="row">
+							<div class='col-sm-6'>
+							<div class="form-group">
+							<div class='input-group date' id='datetimepicker1'>
+								<input type='text' class="form-control" />
+								<span class="input-group-addon">
+								<span class="glyphicon glyphicon-calendar"></span>
+							</span>
+							</div>
+							</div>
+							</div>
+							<script type="text/javascript">
+							$(function () {
+							$('#datetimepicker1').datetimepicker();
+							});
+							</script>
+							</div>
+						</div>
+
+
+
+
+
+						<table class = "table">
+							<thead class = "thead-dark">
+							<tr>
+								<th scope = "col">#</th>
+								<th scope = "col">Hora</th>
+								<th scope = "col">Usuario</th>
+							</tr>
+							</thead>
+						</table>
+					</div>
+					{% if session.get('logged_in') is equalto True %}
+					<button type = "button" class = "btn btn-primary btn-block">Hacer reserva</button>
+					<button type = "button" class = "btn btn-primary btn-block">Eliminar reservas</button>
+					{% endif %}
 				</div>
 
 				<div id = "rec2" class = "tab-pane fade">
