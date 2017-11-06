@@ -54,3 +54,15 @@ header{
 .escondido{
 	display:none;
 }
+
+.azul{
+	background-color:#8dacdd;
+}
+
+.verde{
+	background-color:#86e57e;
+}
+
+.rojo{
+	background-color:#f45942;
+}

@@ -19,6 +19,19 @@
 			$("#pr").click(function(){
 				$("#cambiopass").slideToggle("slow");
 			});
+
+			$("#fondo-azul").click(function(){
+				document.body.style.backgroundColor = "#8dacdd";
+			});
+
+			$("#fondo-rojo").click(function(){
+				document.body.style.backgroundColor = "#f45942";
+			});
+
+			$("#fondo-verde").click(function(){
+				document.body.style.backgroundColor = "#86e57e";
+			});
+
 		});
 
 	</script>
@@ -125,7 +138,11 @@
 	</div>
 	</section>
 
-	<footer class = "panel-footer">Yo me llamo Ralph!</footer>
+	<footer class = "panel-footer">
+		<button id = "fondo-azul" type="button" class="btn btn-sm azul" active><span class="glyphicon glyphicon-pencil"></span> </button>
+		<button id = "fondo-rojo"  type="button" class="btn btn-sm rojo"><span class="glyphicon glyphicon-pencil"></span> </button>
+		<button id = "fondo-verde"  type="button" class="btn btn-sm verde"><span class="glyphicon glyphicon-pencil"></span> </button>
+	</footer>
 
 	</main>
 
