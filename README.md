@@ -37,4 +37,4 @@ Cosas que ya hace la aplicación:
 - [X] Base de datos funcionando (MonoDB).
 - [X] Login de usuarios.
 - [X] Registro de usuarios.
-- [ ] Los usuaris pueden cambiar su contraseña.
+- [X] Los usuarios pueden cambiar su contraseña.

@@ -1,7 +1,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
 {% block bootstrapCDN %}
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -13,15 +14,17 @@
 	<meta charset="utf-8">
 	<title>App guay</title>
 
-  </head>
+</head>
 
 <body>
 <div class = "container">
+
 	<header class = "jumbotron">
 		<h1>NOMBRE muy original</h1>
-
 	</header>
+
 	<main class = "panel panel-default">
+
 	<section class = "panel-body">
 	<div class = "row">
 		<div class="col-xs-4" id = "gestion-usuarios" >
@@ -61,32 +64,30 @@
 			{% else %}
 
 				{% block notlogged %}
-					<form id = "login" method = 'POST'>
+				<p class = "info">NOTA: Tanto la contraseña como el nombre de usuario deben tener de 6 a 20 caracteres.</p>
+	<form id="login" method = 'POST'>
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+			<input type = "text" placeholder = "Usuario" class = "form-control" name = "usr" required>
+		</div>
 
-						<div class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							<input type = "text" placeholder = "Usuario" class = "form-control" name = "usr"/><br/>
-						</div>
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span><input type = "password" placeholder = "Contraseña" class = "form-control" name = "pwd"/><br/>
+		</div>
 
-						<div class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span><input type = "password" placeholder = "Contraseña" class = "form-control" name = "pwd"/><br/>
-						</div>
+		<p class = "text-danger">{{ session['msg'] }}</p>
 
-						<p class = "text-danger">{{ session['msg'] }}</p>
-
-						<div class = "btn-group">
-							<button type = "submit" class = "btn btn-primary" name = "entrar">Entrar</button>
-							<button type = "submit" class = "btn btn-primary" name = "registrar">Registrar</button>
-						</div>
-					</form>
+		<div class = "btn-group">
+		<button type = "submit" class = "btn btn-primary" name = "entrar">Entrar</button>
+		<button type = "submit" class = "btn btn-primary" name = "registrar">Registrar</button>
+		</div>
+	</form>
 				{% endblock %}
 			{% endif %}
 		</div>
-
-
 		</div>
+
 		<div class="col-xs-8" id = "movidas">
-			<h1>Aquí todo lo demás</h1>
 			<ul class = "nav nav-pills" id = "menu">
 				<li class = "active"><a data-toggle = "pill" href = "#rec1">Recurso 1</a></li>
 				<li><a data-toggle = "pill" href = "#rec2">Recurso 2</a></li>
@@ -107,12 +108,14 @@
 				</div>
 
 
+			</div>
 		</div>
 	</div>
 	</section>
-	<footer class = "panel-footer">Yo me llamo Ralph!</footer>
-	</main>
-</div>
-</body>
 
+	<footer class = "panel-footer">Yo me llamo Ralph!</footer>
+
+	</main>
+
+</body>
 </html>
