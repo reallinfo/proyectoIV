@@ -1,7 +1,6 @@
 {
   "name": "Proyecto de IV",
   "description": "Aplicación para gestionar recursos de la facultad.",
-  "image": "heroku/python",
   "repository": "https://github.com/berbus/proyectoIV",
   "keywords": ["python", "flask" ]
 }
