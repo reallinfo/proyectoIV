@@ -13,7 +13,7 @@ MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.c
 
 
 @app.route('/', methods = ['GET'])
-def prueba():
+def test():
 	return jsonify({'status':'OK'})
 '''
 @app.route('/', methods=['GET', 'POST'])
