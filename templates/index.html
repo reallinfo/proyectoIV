@@ -37,6 +37,14 @@
 				$("#consulta-calendario").slideToggle("slow");
 			});
 
+			$("#hr").click(function(){
+				$("#hacer-reserva").slideToggle("slow");
+			});
+
+			$("#cr").click(function(){
+				$("#cancelar-reserva").slideToggle("slow");
+			});
+
 		});
 
 	</script>
@@ -127,7 +135,7 @@
 			<div class = "tab-content">
 				<div id = "rec1" class = "tab-pane fade in active">
 					<button id = "cc" type = "button" class = "btn btn-primary btn-block">Consultar calendario</button>
-					
+
 					<!-- HTML para la consulta del calendario -->
 					<div id = "consulta-calendario" class = "escondido">
 						<br />
@@ -144,18 +152,26 @@
 							</thead>
 						</table>
 					</div>
-					<button type = "button" class = "btn btn-primary btn-block">Hacer reserva</button>
+
+					<br/>
+					<button id = "hr" type = "button" class = "btn btn-primary btn-block">Hacer reserva</button>
+					<div id = "hacer-reserva" class = "escondidod">
 					{% if session.get('logged_in') is equalto True %}
 						<p class = "text-danger">En proceso... </p>
 					{% else %}
 						<p class = "text-danger">Sólo los usuarios registrados pueden hacer reservas</p>
 					{% endif %}
-					<button type = "button" class = "btn btn-primary btn-block">Eliminar reservas</button>
+					</div>
+
+					<br />
+					<button id = "cr" type = "button" class = "btn btn-primary btn-block">Eliminar reservas</button>
+					<div id = "eliminar-reserva" class = "escondido">
 					{% if session.get('logged_in') is equalto True %}
 						<p class = "text-danger">En proceso... </p>
 					{% else %}
 						<p class = "text-danger">Sólo los usuarios registrados pueden eliminar reservas</p>
 					{% endif %}
+					</div>
 				</div>
 
 				<div id = "rec2" class = "tab-pane fade">
