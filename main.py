@@ -12,10 +12,6 @@ DEBUG = True
 MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.com:45805/base')
 
 
-@app.route('/', methods = ['GET'])
-def test():
-	return jsonify({'status':'OK'})
-'''
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	session['msg'] = ""
@@ -104,7 +100,6 @@ def cambiopass():
 				session['msg'] = "Contraseña actual incorrecta."
 
 	return redirect('/')
-'''
 
 if __name__ == '__main__':
 	app.run(port = PORT, debug = DEBUG)
