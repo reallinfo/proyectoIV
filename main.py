@@ -1,6 +1,6 @@
 import os, pymongo
 from urllib import parse
-from flask import Flask, request, render_template, session, redirect, json
+from flask import Flask, request, render_template, session, redirect, jsonify
 
 app = Flask(__name__)
 app.secret_key = "cosabrutalmentealeatoriacuidado"
@@ -13,8 +13,7 @@ MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.c
 
 @app.route('/', methods=['GET', 'POST'])
 def test():
-	aux = {'status':'ok'}
-	return json.dumps(aux)
+	return jsonify({'status':'ok'})
 
 '''
 @app.route('/', methods=['GET', 'POST'])
