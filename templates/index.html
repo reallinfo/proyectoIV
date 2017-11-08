@@ -41,8 +41,8 @@
 				$("#hacer-reserva").slideToggle("slow");
 			});
 
-			$("#cr").click(function(){
-				$("#cancelar-reserva").slideToggle("slow");
+			$("#er").click(function(){
+				$("#eliminar-reserva").slideToggle("slow");
 			});
 
 		});
@@ -155,7 +155,7 @@
 
 					<br/>
 					<button id = "hr" type = "button" class = "btn btn-primary btn-block">Hacer reserva</button>
-					<div id = "hacer-reserva" class = "escondidod">
+					<div id = "hacer-reserva" class = "escondido">
 					{% if session.get('logged_in') is equalto True %}
 						<p class = "text-danger">En proceso... </p>
 					{% else %}
@@ -164,7 +164,7 @@
 					</div>
 
 					<br />
-					<button id = "cr" type = "button" class = "btn btn-primary btn-block">Eliminar reservas</button>
+					<button id = "er" type = "button" class = "btn btn-primary btn-block">Eliminar reservas</button>
 					<div id = "eliminar-reserva" class = "escondido">
 					{% if session.get('logged_in') is equalto True %}
 						<p class = "text-danger">En proceso... </p>
