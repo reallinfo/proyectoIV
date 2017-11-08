@@ -127,7 +127,7 @@
 			<div class = "tab-content">
 				<div id = "rec1" class = "tab-pane fade in active">
 					<button id = "cc" type = "button" class = "btn btn-primary btn-block">Consultar calendario</button>
-
+					
 					<!-- HTML para la consulta del calendario -->
 					<div id = "consulta-calendario" class = "escondido">
 						<br />
@@ -144,9 +144,17 @@
 							</thead>
 						</table>
 					</div>
-					{% if session.get('logged_in') is equalto True %}
 					<button type = "button" class = "btn btn-primary btn-block">Hacer reserva</button>
+					{% if session.get('logged_in') is equalto True %}
+						<p class = "text-danger">En proceso... </p>
+					{% else %}
+						<p class = "text-danger">Sólo los usuarios registrados pueden hacer reservas</p>
+					{% endif %}
 					<button type = "button" class = "btn btn-primary btn-block">Eliminar reservas</button>
+					{% if session.get('logged_in') is equalto True %}
+						<p class = "text-danger">En proceso... </p>
+					{% else %}
+						<p class = "text-danger">Sólo los usuarios registrados pueden eliminar reservas</p>
 					{% endif %}
 				</div>
 
