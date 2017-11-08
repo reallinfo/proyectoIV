@@ -1,6 +1,6 @@
 import os, pymongo
 from urllib import parse
-from flask import Flask, request, render_template, session, redirect, jsonify
+from flask import Flask, request, render_template, session, redirect, json
 
 app = Flask(__name__)
 app.secret_key = "cosabrutalmentealeatoriacuidado"
@@ -11,7 +11,12 @@ DEBUG = True
 ''' Cuando acabe con las pruebas cambiaré la contraseña y quitaré esto. '''
 MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.com:45805/base')
 
+@app.route('/', methods=['GET', 'POST'])
+def test():
+	aux = {'status':'ok'}
+	return json.dumps(aux)
 
+'''
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	session['msg'] = ""
@@ -100,6 +105,8 @@ def cambiopass():
 				session['msg'] = "Contraseña actual incorrecta."
 
 	return redirect('/')
+
+'''
 
 if __name__ == '__main__':
 	app.run(port = PORT, debug = DEBUG)
