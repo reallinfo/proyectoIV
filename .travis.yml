@@ -1,7 +1,9 @@
 language: python
+
 python:
   - 3.5.3
+
 script:
-  - python ./tests/test_fechas.py
-  - python ./tests/test_utilidades.py
-  - python ./tests/test_recurso.py
+  - python3 ./tests/test_fechas.py
+  - python3 ./tests/test_utilidades.py
+  - python3 ./tests/test_recurso.py
