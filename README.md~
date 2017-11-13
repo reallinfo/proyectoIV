@@ -40,7 +40,3 @@ Cosas que ya hace la aplicación:
 - [X] Los usuarios pueden cambiar su contraseña.
 
 Despliegue https://radiant-earth-69154.herokuapp.com/
-
-Despliegue desde GitHub:
-
-![img2](/static/img/heroku-dep.png)
