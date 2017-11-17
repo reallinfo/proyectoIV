@@ -44,3 +44,14 @@ Despliegue https://radiant-earth-69154.herokuapp.com/
 Despliegue desde GitHub:
 
 ![img2](/static/img/heroku-dep.png)
+
+## Ampliación de la cobertura de los tests
+Usando coverage.py, se han repasado todos los archivos que contienen código Python para asegurar la cobertura completa de los tests unitarios. El resultado ha sido una cobertura de casi el 100% (el porcentaje que falta es código que sólo se ejecuta en Windows).
+
+#### Resultados de coverage antes de la ampliación
+![img5](static/img/cov_fechas_antes.png)
+
+#### Resultados de coverage después de la ampliación
+![img2](static/img/cov_fechas_despues.png)
+![img3](static/img/cov_recursos_despues.png)
+![img4](static/img/cov_utilidades_despues.png)
