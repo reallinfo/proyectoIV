@@ -11,6 +11,8 @@ Clase que representa a un recurso de la facultad. Un recurso debe tener:
 Cada recurso tendrá su documento en la colección recursos_iv de la base de datos. Los recursos podrán ser añadidos por usuarios con permisos de administrador, consultados por cualquier usuario y reservados por usuarios que hayan hecho log in.
 '''
 
+import warnings
+
 class Recurso:
 	def __init__(self, nombre, t_min, t_max):
 		try:
@@ -19,8 +21,9 @@ class Recurso:
 			t_max = int(t_max)
 			if t_min < 0 or t_max < 0:
 				raise ValueError
-		except:
+		except ValueError:
 			''' valores por defecto '''
+			warnings.warn("Usando valores por defecto", UserWarning)
 			nombre = "error"
 			t_min = 0
 			t_max = 0
@@ -86,10 +89,5 @@ class Recurso:
 			return False
 
 
-	def imprimir_recurso(self):
-		print(str(self.nombre) + ": " + str(self.t_min) + ", " + str(self.t_max))
-
-
-if __name__ == '__main__':
-	r = Recurso("futbolin", 5, 1)
-	r.imprimir_recurso()
+	def __str__(self):
+		return str(self.nombre) + ": " + str(self.t_min) + ", " + str(self.t_max)
