@@ -12,56 +12,57 @@ DEBUG = True
 MONGO_URL = os.environ.get('MONGO_URL', 'mongodb://prueba:123456@ds245805.mlab.com:45805/base')
 
 
-@app.route('/statusok', methods=['GET'])
+@app.route('/', methods=['GET'])
 def test():
 	return jsonify({'status':'ok'})
 
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-	session['msg'] = ""
-	if request.method == 'POST' and not session.get('logged_in'):
-		client = pymongo.MongoClient(MONGO_URL)
-		col = client.base.users_iv
-		res = col.find()
-		try:
-			usr = str(request.form['usr'])
-			pwd = str(request.form['pwd'])
-			res = col.find()
-			if (len(usr) < 6) or (len(pwd) < 6) or (len(usr) > 20) or (len(pwd) > 20):
-				raise Exception
-		except:
-			session['msg'] = "Los datos introducidos no son válidos."
-			usr = 'error'
-			pwd = 'error'
-
-		if ('entrar' in request.form) and (usr != 'error'):
-
-			for i in res:
-				aux = i
-				if (aux['user'] == usr) and (aux['pass'] == pwd):
-					session['logged_in'] = True
-					session['usr'] = usr
-
-			if not session.get('logged_in'):
-				session['msg'] = "El usuario dado no coincide con la contraseña."
-
-		elif ('registrar' in request.form) and (usr != 'error'):
-			existe = False
-			for i in res:
-				aux = i
-				if aux['user'] == usr:
-					existe = True
-
-			if existe:
-				session['msg'] = "Ya existe un usuario con ese nombre."
-			else:
-				col.insert_one( {'user':usr, 'pass':pwd} )
-				session['msg'] = "¡Usuario creado con éxito! Ya puedes entrar..."
-		client.close()
-
-	return render_template('index.html')
-
+#
+# @app.route('/', methods=['GET', 'POST'])
+# def index():
+# 	session['msg'] = ""
+# 	if request.method == 'POST' and not session.get('logged_in'):
+# 		client = pymongo.MongoClient(MONGO_URL)
+# 		col = client.base.users_iv
+# 		res = col.find()
+# 		try:
+# 			usr = str(request.form['usr'])
+# 			pwd = str(request.form['pwd'])
+# 			res = col.find()
+# 			if (len(usr) < 6) or (len(pwd) < 6) or (len(usr) > 20) or (len(pwd) > 20):
+# 				raise Exception
+# 		except:
+# 			session['msg'] = "Los datos introducidos no son válidos."
+# 			usr = 'error'
+# 			pwd = 'error'
+#
+# 		if ('entrar' in request.form) and (usr != 'error'):
+#
+# 			for i in res:
+# 				aux = i
+# 				if (aux['user'] == usr) and (aux['pass'] == pwd):
+# 					session['logged_in'] = True
+# 					session['usr'] = usr
+#
+# 			if not session.get('logged_in'):
+# 				session['msg'] = "El usuario dado no coincide con la contraseña."
+#
+# 		elif ('registrar' in request.form) and (usr != 'error'):
+# 			existe = False
+# 			for i in res:
+# 				aux = i
+# 				if aux['user'] == usr:
+# 					existe = True
+#
+# 			if existe:
+# 				session['msg'] = "Ya existe un usuario con ese nombre."
+# 			else:
+# 				col.insert_one( {'user':usr, 'pass':pwd} )
+# 				session['msg'] = "¡Usuario creado con éxito! Ya puedes entrar..."
+# 		client.close()
+#
+# 	return render_template('index.html')
+#
 
 @app.route('/logout')
 def logout():
