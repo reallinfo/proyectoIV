@@ -4,6 +4,7 @@ Gestión de fechas con funciones que serán útiles a la hora de trabajar con la
 
 
 from datetime import *
+import warnings
 
 
 ##########################
@@ -16,7 +17,7 @@ def ayer(extra = 0):
 		int(extra)
 	except:
 		extra = 0
-		print("El argumento de ayer() debe ser un entero válido. Ejecutando ayer(0)")
+		warnings.warn("El argumento de ayer() debe ser un entero válido. Ejecutando ayer(0)", UserWarning)
 	return datetime.today() - timedelta(days = 1, hours = extra)
 
 def hoy(extra = 0):
@@ -25,7 +26,7 @@ def hoy(extra = 0):
 		int(extra)
 	except:
 		extra = 0
-		print("El argumento de hoy() debe ser un entero válido. Ejecutando hoy(0)")
+		warnings.warn("El argumento de hoy() debe ser un entero válido. Ejecutando hoy(0)", UserWarning)
 	return datetime.today() + timedelta(hours = extra)
 
 def manana(extra = 0):
@@ -34,13 +35,14 @@ def manana(extra = 0):
 		int(extra)
 	except:
 		extra = 0
-		print("El argumento de manana() debe ser un entero válido. Ejecutando manana(0)")
+		warnings.warn("El argumento de manana() debe ser un entero válido. Ejecutando manana(0)")
 	return datetime.today() + timedelta(days = 1, hours = extra)
 
 def fecha_pasada(fecha):
 	""" Recibe un datetime. Devuelve True si la fecha es anterior a hoy."""
 	if type(fecha) is not datetime:
 		raise TypeError("fecha_pasada sólo admite datetime como argumento.")
+
 	if fecha > hoy():
 		return False
 	else:
