@@ -64,7 +64,7 @@ class TestFechas(unittest.TestCase):
 	def test_hora_pasada(self):
 		print("Testeando hora_pasada()...")
 		self.assertTrue(hora_pasada(datetime.now()))
-		x = datetime(datetime.now()+1, 12, 12)
+		x = datetime(datetime.now().year+1, 12, 12)
 		self.assertFalse(hora_pasada(x))
 		with self.assertRaises(TypeError):
 			hora_pasada(5)
