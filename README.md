@@ -64,6 +64,6 @@ La imagen de DockerHub usa el archivo Dockerfile de este repositorio.  Partiendo
 Por otro lado, desde Heroku, se hace un despliegue del contenedor siguiendo [estas instrucciones](https://devcenter.heroku.com/articles/container-registry-and-runtime) y haciendo uso del comando  ``heroku stack:set heroku-16``.
 
 
-DockerHub: https://hub.docker.com/r/berbus/proyectoiv/
+DockerHub https://hub.docker.com/r/berbus/proyectoiv/
 
 Contenedor https://radiant-earth-69154.herokuapp.com/
