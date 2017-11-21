@@ -57,6 +57,6 @@ Usando coverage.py, se han repasado todos los archivos que contienen código Pyt
 ![img4](static/img/cov_utilidades_despues.png)
 
 
-## contenedores
+## Contenedores
 
 DockerHub: https://hub.docker.com/r/berbus/proyectoiv/
