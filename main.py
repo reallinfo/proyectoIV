@@ -69,48 +69,48 @@ def test2():
 # 	return render_template('index.html')
 #
 
-@app.route('/logout')
-def logout():
-	session.pop('logged_in', None)
-	session.pop('msg', None)
-	session.pop('usr', None)
-	return redirect('/')
-
-
-@app.route('/cambiopass', methods = ['POST'])
-def cambiopass():
-	client = pymongo.MongoClient(MONGO_URL)
-	col = client.base.users_iv
-	session['msg'] = "Vamos allá"
-	try:
-		usr = session.get('usr')
-		pwd = str(request.form['anterior'])
-		pwdn1 = str(request.form['nueva1'])
-		pwdn2 = str(request.form['nueva2'])
-		if (len(pwd1) < 6) or (len(pwdn1) > 20):
-			raise Exception
-	except:
-		session['msg'] = "Los datos introducidos no son válidos."
-		usr = 'error'
-
-	if pwdn1 != pwdn2:
-		session['msg'] = "Las contraseñas no coinciden."
-		usr = 'error'
-	elif pwd == pwdn1:
-		session['msg'] = "La nueva contraseña debe ser distinta de la anterior."
-		usr = 'error'
-
-	if not (usr == 'error'):
-		res = col.find()
-		for i in res:
-			aux = i
-			if (aux['user'] == usr) and (aux['pass'] == pwd):
-				col.update_one( {'user':usr}, {'$set': {'pass':pwdn1} } )
-				session['msg'] = "¡Contraseña cambiada!"
-			elif (aux['user'] == usr):
-				session['msg'] = "Contraseña actual incorrecta."
-
-	return redirect('/')
+# @app.route('/logout')
+# def logout():
+# 	session.pop('logged_in', None)
+# 	session.pop('msg', None)
+# 	session.pop('usr', None)
+# 	return redirect('/')
+#
+#
+# @app.route('/cambiopass', methods = ['POST'])
+# def cambiopass():
+# 	client = pymongo.MongoClient(MONGO_URL)
+# 	col = client.base.users_iv
+# 	session['msg'] = "Vamos allá"
+# 	try:
+# 		usr = session.get('usr')
+# 		pwd = str(request.form['anterior'])
+# 		pwdn1 = str(request.form['nueva1'])
+# 		pwdn2 = str(request.form['nueva2'])
+# 		if (len(pwd1) < 6) or (len(pwdn1) > 20):
+# 			raise Exception
+# 	except:
+# 		session['msg'] = "Los datos introducidos no son válidos."
+# 		usr = 'error'
+#
+# 	if pwdn1 != pwdn2:
+# 		session['msg'] = "Las contraseñas no coinciden."
+# 		usr = 'error'
+# 	elif pwd == pwdn1:
+# 		session['msg'] = "La nueva contraseña debe ser distinta de la anterior."
+# 		usr = 'error'
+#
+# 	if not (usr == 'error'):
+# 		res = col.find()
+# 		for i in res:
+# 			aux = i
+# 			if (aux['user'] == usr) and (aux['pass'] == pwd):
+# 				col.update_one( {'user':usr}, {'$set': {'pass':pwdn1} } )
+# 				session['msg'] = "¡Contraseña cambiada!"
+# 			elif (aux['user'] == usr):
+# 				session['msg'] = "Contraseña actual incorrecta."
+#
+# 	return redirect('/')
 
 
 
