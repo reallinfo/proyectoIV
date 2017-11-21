@@ -5,10 +5,10 @@ MAINTAINER Alberto del Río
 RUN apt-get install -y git
 RUN git clone https://github.com/berbus/proyectoIV.git proyecto
 
-RUN pip3 install -r ./proyecto/requeriments.txt
-RUN echo "hi"
+RUN pip3 install -r proyecto/requeriments.txt
+RUN ls
 
-WORKDIR ./proyecto/
+WORKDIR proyecto/
 
 ENV PORT 80
 
