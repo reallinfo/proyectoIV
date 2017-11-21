@@ -5,7 +5,7 @@ MAINTAINER Alberto del Río
 RUN apt-get install -y git
 RUN git clone https://github.com/berbus/proyectoIV.git proyecto
 
-RUN pip3 install ./proyecto/requeriments.txt
+RUN pip3 install -r ./proyecto/requeriments.txt
 
 WORKDIR ./proyecto/
 
