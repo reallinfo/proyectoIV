@@ -6,11 +6,12 @@ RUN apt-get install -y git
 RUN git clone https://github.com/berbus/proyectoIV.git proyecto
 
 RUN pip3 install -r ./proyecto/requeriments.txt
+RUN echo "hi"
 
 WORKDIR ./proyecto/
 
-ENV PORT 8000
+ENV PORT 80
 
 CMD [ "python3", "./main.py" ]
 
-EXPOSE 8000
+EXPOSE 80
