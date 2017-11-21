@@ -60,7 +60,6 @@ Usando coverage.py, se han repasado todos los archivos que contienen código Pyt
 
 La imagen de DockerHub usa el archivo Dockerfile de este repositorio.  Partiendo de la imagen oficial para Python, se clona este repositorio, se instalan los requisitos especificados en ``requeriments.txt`` y se lanza la aplicación usando el puerto 8000.
 
-Por otro lado, desde Heroku, se hace un despliegue del contenedor siguiendo [estas instrucciones](https://devcenter.heroku.com/articles/container-registry-and-runtime) y haciendo uso del comando  ``heroku stack:set heroku-16``.
 
 
 Despliegue https://radiant-earth-69154.herokuapp.com/
