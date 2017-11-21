@@ -7,7 +7,6 @@ RUN rm -rf proyecto
 RUN git clone https://github.com/berbus/proyectoIV.git proyecto
 
 RUN pip3 install -r proyecto/requeriments.txt
-RUN ls
 
 WORKDIR proyecto/
 
