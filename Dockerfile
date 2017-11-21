@@ -9,8 +9,8 @@ RUN pip3 install -r ./proyecto/requeriments.txt
 
 WORKDIR ./proyecto/
 
-ENV PORT 80
+ENV PORT 8000
 
 CMD [ "python3", "./main.py" ]
 
-EXPOSE 80
+EXPOSE 8000
