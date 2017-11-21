@@ -11,8 +11,8 @@ RUN ls
 
 WORKDIR proyecto/
 
-ENV PORT 80
+ENV PORT 8000
 
 CMD [ "python3", "./main.py" ]
 
-EXPOSE 80
+EXPOSE 8000
