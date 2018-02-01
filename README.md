@@ -67,3 +67,11 @@ Despliegue https://radiant-earth-69154.herokuapp.com/
 DockerHub https://hub.docker.com/r/berbus/proyectoiv/
 
 Contenedor https://radiant-earth-69154.herokuapp.com/
+
+## Despliegue en Azure
+
+1. Instalar Vagrant
+2. Instalar azure-cli
+3. Hacer login en Azure
+
+
