@@ -9,15 +9,29 @@
 {% block body %}
 <script src="{% static "js/index-controller.js" %}"></script>
 {% verbatim %}
-
 <div ng-app="aleatoriedapp" ng-controller="indexController">
-  <ul>
-    <li ng-repeat="x in products">{{x}}</li>
-  </ul>
 
-<p>So far we have made an HTML list based on the items of an array.</p>
-<input type="text" ng-model="test"></input>
-<h1>{{ test }}</h1>
+
+<main class="container-fluid">
+    <header class="row bg-info">
+        <div class="col-md-10 text-center">
+            <h1 class="display-1">ALEATORIEDAPP</h1>
+        </div>
+    </header>
+    <section class="row">
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label>Escribe algo</label>
+                    <input type="text" ng-model="test" class="form-control"></input>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h1>{{ test }}</h1>
+        </div>
+    </section>
+</main>
 
 </div>
 {% endverbatim %}
