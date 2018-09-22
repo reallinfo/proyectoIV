@@ -2,3 +2,20 @@
 body {
     background-color: gray;
 }
+
+header {
+    border: 2px solid rgba(66, 134, 244, .5);
+    margin: 0 0 2% 0;
+    padding: 2%;
+}
+
+main {
+    width: 60%;
+    margin: auto;
+}
+
+section {
+    border: 2px solid rgba(66, 134, 244, .5);
+    padding: 2%;
+    margin: 0 0 1% 0;
+}

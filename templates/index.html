@@ -12,12 +12,13 @@
 <div ng-app="aleatoriedapp" ng-controller="indexController">
 
 
-<main class="container-fluid">
+<div class="container-fluid">
     <header class="row bg-info">
         <div class="col-md-10 text-center">
             <h1 class="display-1">ALEATORIEDAPP</h1>
         </div>
     </header>
+    <main>
     <section class="row">
         <div class="col-md-6">
             <form>
@@ -31,7 +32,31 @@
             <h1>{{ test }}</h1>
         </div>
     </section>
+    <section class="row">
+        <div class="col-md-6">
+            <form method="POST">
+                {% endverbatim %}
+                {% csrf_token %}
+                {% verbatim %}
+                <div class="form-group">
+                    <label>Número mínimo: </label>
+                    <input type="number" class="form-control" ng-model="min_n"></input>
+                </div>
+                <div class="form-group">
+                    <label>Número máximo: </label>
+                    <input type="number" class="form-control" ng-model="max_n"></input>
+                </div>
+                <button ng-click="getRandomN()" class="btn btn-info">Número aleatorio</button>
+                <p class="text-danger">{{ error }}</p>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <h1>{{ random_n }}</h1>
+        </div>
+    </section>
 </main>
+</div>
 
 </div>
 {% endverbatim %}

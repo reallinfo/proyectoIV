@@ -1,0 +1,5 @@
+
+
+app.service("randomSrvc", function(){
+    
+})
