@@ -25,5 +25,3 @@ En lo que respecta a la asignatura, además de todo el desarrollo de la aplicaci
     [ ] Crear tests para el código de Python
     [ ] Depoy a Heroku a través de GitHub
     [ ] Dockerizar la aplicación
-
-## Descripción detallada de los objetivos
