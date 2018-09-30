@@ -18,7 +18,7 @@ En lo que respecta a la asignatura, además de todo el desarrollo de la aplicaci
     [X] Crear la base de la aplicación que da JSON con datos aleatorios (aleatoriedad)
     [X] Integración de AngularJS para el frontend
     [X] Hacer que aleatoriedad genere números aleatorios
-    [X] Crear y cerrar issues con commits
+    [X] Crear y cerrar issues con commits, dos veces
     [ ] Hacer que aleatoriedad genere cadenas aleatorias
     [ ] Conectar la aplicación a una base de datos
     [ ] Almacenar en la base de datos las peticiones de los usuarios
