@@ -12,7 +12,7 @@ El objetivo final de la aplicación es generar datos aleatorios en diferentes fo
 
 En lo que respecta a la asignatura, además de todo el desarrollo de la aplicación y su despliegue, se trata de hacer una aplicación con una buena diferenciación entre back y front end y que haga uso de varias tecnologías. Concretamente, Django sólo espera las peticiones del frontend manipulado por Angular y almacena lo que corresponda en la base de datos.
 
-### Objetivos
+### Hitos a alcanzar en el desarrollo de la aplicación
     [X] Crear repositorio y añadir archivo de licencia
     [X] Crear el esqueleto del proyecto Django
     [X] Crear la base de la aplicación que da JSON con datos aleatorios (aleatoriedad)
