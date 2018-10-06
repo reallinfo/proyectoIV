@@ -2,7 +2,7 @@
 ## Aplicación para el proyecto de Infraestructura Virtual
 
 ### Introducción
-AleatoriedAPP es una aplicación desarrollada en Django 2.1.1 usando Python 3 para el backend y una sola template para la interacción con el usuario.
+AleatoriedAPP es una aplicación desarrollada en Django 2.0.2 usando Python 3 para el backend y una sola template para la interacción con el usuario.
 
 La template está renderizada por Django pero, haciendo uso de *{% verbatim %}*, se consigue que se renderice sólo una vez y, a partir de ahí, se manipulada exclusivamente por un controlador escrito en AngularJS.
 
