@@ -11,8 +11,8 @@ def random_number(request):
     try:
         min = int(request.GET['min'])
         max = int(request.GET['max'])
+        n = randint(min, max)
     except Exception as e:
-        return JsonResponse({'error':'Invalid input'}, status = 404)
+        return JsonResponse({'error':'Invalid input'}, status = 400)
 
-    n = randint(min, max)
     return JsonResponse({'random_number':n}, status = 200)
