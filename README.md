@@ -11,3 +11,8 @@ El código CSS es principalmente usado a través de bootstrap, excepto para algu
 El objetivo final de la aplicación es generar datos aleatorios en diferentes formatos y, en un último paso, almacenar las entradas de los usuarios y mostrarlas aleatoriamente a otros bajo petición.
 
 En lo que respecta a la asignatura, además de todo el desarrollo de la aplicación y su despliegue, se trata de hacer una aplicación con una buena diferenciación entre back y front end y que haga uso de varias tecnologías. Concretamente, Django sólo espera las peticiones del frontend manipulado por Angular y almacena lo que corresponda en la base de datos.
+
+### Tests
+La aplicación aleatoriedad tiene establecidas una serie de pruebas en la carpeta tests que se lanzan por travis para comprobar los resultados.
+
+Un ejemplo de ejecución puede verse en [https://travis-ci.org/berbus/proyectoIV/builds/437979361](https://travis-ci.org/berbus/proyectoIV/builds/437979361).
