@@ -16,3 +16,10 @@ En lo que respecta a la asignatura, además de todo el desarrollo de la aplicaci
 La aplicación aleatoriedad tiene establecidas una serie de pruebas en la carpeta tests que se lanzan por travis para comprobar los resultados.
 
 Un ejemplo de ejecución puede verse en [https://travis-ci.org/berbus/proyectoIV/builds/437979361](https://travis-ci.org/berbus/proyectoIV/builds/437979361).
+
+
+### Versión funcional online
+
+La aplicación se despliega en Heroku.
+
+URL de despliegue: https://aleatoriedapp.herokuapp.com/

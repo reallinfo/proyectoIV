@@ -5,8 +5,7 @@ app.controller('indexController', ['$scope', '$http', function($scope, $http) {
     $scope.min_n = 0;
     $scope.max_n = 100000;
     $scope.error = '';
-    // var addr = 'https://aleatoriedapp.herokuapp.com';
-    var addr = 'http://localhost:8000';
+    var addr = 'https://aleatoriedapp.herokuapp.com';
 
     $scope.getRandomN = function() {
         $scope.random_n = 0;
