@@ -1,3 +1,5 @@
+<p align="left"><img src="logo/horizontal.png" alt="proyectoIV" height="120px"></p>
+
 # AleatoriedAPP
 ## Aplicación para el proyecto de Infraestructura Virtual
 
